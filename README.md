@@ -18,7 +18,7 @@ INFSCI2560SpringAMP
 * Participants should be able to contact researchers to express their interest in the study
 * Search functionality: allowing to search by keyword, time, and contact information
 
-## Participants interface
+## Researcher's interface
 * Abilitytoenter/modifyinformation
   * Any modification should allow new notification being sent to subscribers
 * Ability to view subscribed participants
