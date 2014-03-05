@@ -151,12 +151,16 @@ nav a { text-decoration: none; }
 div.box {
   border: 1px solid #a3bddd;
   padding: 5px;
-  background-color: #dcdce6;
   margin: 5px;
-  width: 50%;
-  white-space: normal;
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  vertical-align: top;
+}
+
+span.money {
+  color: green;
+  font-weight: bold;
+  text-align: left;
+}
+
+span.title {
+  font-weight: bold;
+  align: center;
 }
