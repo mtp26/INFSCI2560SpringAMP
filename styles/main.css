@@ -93,7 +93,7 @@ section.main {
   position: relative;
   top: 0px;
   left: 200px;
-  width: 100%;
+  width: 80%;
   background: #ffffff;
   padding: 5px;
   z-index: 1;
@@ -104,11 +104,14 @@ section.main table, td {
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
   border-collapse: collapse;
-  overflow: hidden;
 }
 
 section.main tr:nth-child(even) {
   background-color: #cccc99;
+}
+
+section.main td a {
+  color: #000000;
 }
 
 section.main th {
