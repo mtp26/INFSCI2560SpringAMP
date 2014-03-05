@@ -125,12 +125,6 @@ section.main a {
   color: #ffffff;
 }
 
-img {
-  border: 1px solid #000000;
-  float: left;
-  margin-right: 10px;
-}
-
 header {
   position: fixed;
   top: 0px;
@@ -151,16 +145,21 @@ nav a { text-decoration: none; }
 div.box {
   border: 1px solid #a3bddd;
   padding: 5px;
-  margin: 5px;
+  margin: 0px;
 }
 
 span.money {
-  color: green;
+  color: #008000;
   font-weight: bold;
-  text-align: left;
+  margin: 20px;
 }
 
 span.title {
   font-weight: bold;
-  align: center;
+  margin: 20px;
+}
+
+span.calendar {
+  margin: 20px;
+  text-align: right;
 }
