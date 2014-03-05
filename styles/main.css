@@ -62,7 +62,7 @@ section.filter {
   width: 180px;
   color: #000000;       
   font-size: 0.75em;
-  background: #cccc99;
+  background: #f4f4d6;
   border-bottom: 1px solid #000000; 
   border-right: 1px solid #000000; 
   padding: 5px;
@@ -76,7 +76,7 @@ section.search {
   width: 100%;
   color: #000000;       
   font-size: 0.75em;
-  background: #cccc99;
+  background: #f4f4d6;
   border-bottom: 1px solid #000000;
   padding: 5px;
   z-index: 3;
@@ -108,7 +108,7 @@ section.main table, td {
 }
 
 section.main tr:nth-child(even) {
-  background-color: #cccc99;
+  background-color: #f4f4d6;
 }
 
 section.main td a {
@@ -140,7 +140,7 @@ header {
   height: 49px;
   margin: 0px 0px 49px 0px;
   background: url(../images/pitt-logo-bluebkg.gif) left top no-repeat #111150;
-  border-bottom: 5px solid #cccc99; 
+  border-bottom: 5px solid #f4f4d6; 
   z-index: 2;
 }
 
