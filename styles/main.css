@@ -103,6 +103,7 @@ section.main table, td {
   padding: 5px;
   border-right: 1px solid #000000;
   border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
   border-collapse: collapse;
 }
 
