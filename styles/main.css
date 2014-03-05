@@ -161,5 +161,12 @@ span.title {
 
 span.calendar {
   margin: 20px;
-  text-align: right;
+}
+
+#contact-link {
+  color: #ffffff;
+  background-color: #000055;
+  margin: 20px;
+  padding: 10px;
+  border: 5px solid #f4f4d6
 }
