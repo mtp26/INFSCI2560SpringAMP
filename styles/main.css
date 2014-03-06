@@ -170,3 +170,47 @@ span.calendar {
   padding: 10px;
   border: 5px solid #f4f4d6
 }
+
+
+section.main-researcher {
+  position: relative;
+  top: 0px;
+  left: 20px;
+  width: 80%;
+  background: #ffffff;
+  padding: 5px;
+  z-index: 1;
+}
+
+section.main-researcher table, td {
+  padding: 5px;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-collapse: collapse;
+}
+
+section.main-researcher tr:nth-child(even) {
+  background-color: #f4f4d6;
+}
+
+section.main-researcher td a {
+  color: #000000;
+}
+
+section.main-researcher th {
+  color: #ffffff;
+  background-color: #111155;
+  border: 1px solid #000000;
+}
+
+section.main-researcher a {
+  color: #ffffff;
+}
+
+span.login {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: top;
+}
