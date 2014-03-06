@@ -21,6 +21,19 @@ header {
   z-index: 2;
 }
 
+#little_header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 49px;
+    margin: 0px 0px 49px 0px;
+    background: #111150;
+    border-bottom: 5px solid #cccc99; 
+    z-index: 2;
+}
+
 /* Edit Study Styling */
 #left_side {
   position: fixed;
