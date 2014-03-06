@@ -171,6 +171,15 @@ span.calendar {
   border: 5px solid #f4f4d6
 }
 
+#add-study {
+  color: #ffffff;
+  background-color: #000055;
+  margin: 20px;
+  padding: 10px;
+  border: 5px solid #f4f4d6
+  float: left;
+}
+
 section.main-researcher {
   position: relative;
   top: 0px;
@@ -208,9 +217,10 @@ section.main-researcher a {
 }
 
 span.login {
-  color: #ffffff;
+  margin-right: 10px;
+  color: #111155
   font-weight: bold;
-  text-align: right;
+  float: right;
   vertical-align: top;
 }
 
