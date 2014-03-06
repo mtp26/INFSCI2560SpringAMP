@@ -176,8 +176,6 @@ span.calendar {
   background-color: #000055;
   margin: 20px;
   padding: 10px;
-  border: 5px solid #f4f4d6
-  float: left;
 }
 
 section.main-researcher {
@@ -218,8 +216,7 @@ section.main-researcher a {
 
 span.login {
   margin-right: 10px;
-  color: #111155
-  font-weight: bold;
+  color: #111155;
   float: right;
   vertical-align: top;
 }
