@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
+	<script src="../scripts/popups.js"></script>
+</head>
+<body>
+	<header>
+		<h2 class="banner">$study_title</h2>
+	</header>
+	<!-- $ indicates a variable value pulled from the record -->
+	<section>
+		<article id="time_info">
+			<p id="range">$start_date - $end_date</p>
+			<p id="length"><label>Session Length:</label> $session_length</p>
+			<p id="repeat"><label># of Sessions:</label> $session_number</p>
+			<p id="schedule_label"><label>Session Schedule:</label></p>
+			<p id="calendar">
+				<a href="http://calendar.google.com" target="_blank"><img src="calendar_icon.png" alt="Calendar Icon" height="48" width="48"></a>
+				<!-- Calendar Icon from http://findicons.com/icon/180752/calendar_bars -->
+				<button type="button" id="schedule">Schedule</button>
+			</p>
+		</article>
+		<article id="eligibility">
+			<p id="requirements"><label>Eligibility:</label><textarea id="eligibility_reqs" placeholder="$eligibility_requirements" readonly="readonly" cols="50" rows="3" /></textarea></p>
+			<p id="location"><label>Location:</label> $location</p>
+			<p id="payment"><label>Payment:</label> $pay_method</p>
+			<p id="value"><label>Value:</label> $pay_value</p>
+		</article>
+		<article id="describe"><textarea id="description" placeholder="$description" readonly="readonly" cols="100" rows="10"></textarea></p>
+		<p id="keywords"><label>Keywords:</label> $keywords</p>
+		<p id="buttons">
+			<button type="button" id="subscribe" onclick="subscribe();">Subscribe</button>
+			<button type="button" id="get_phone" onclick="getPhone();">Contact - Phone</button>
+			<button type="button" id="get_email" onclick="sendEmail();">Contact - Email</button>
+			<!-- This button drops down on hover to display the contact info. We'll need to play with it. -->
+			<!--
+			<a href="#" class="contact">
+				<span class="contact-text">Contact</span> 
+				<span class="contact-slide-phone">$phone</span>
+				<span class="contact-slide-email">$email</span>
+			</a>
+				-->
+		</article>
+	</section>
+</body>
+</html>
