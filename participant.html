@@ -4,6 +4,8 @@
   <title>Find an Experiment</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" type="text/css" href="styles/main.css" />
+  <script type="text/javascript" src="scripts/jquery-2.1.0.js"></script>
+  <script type="text/javascript" src="scripts/project.js"></script>
 </head>
 <body> 
 
@@ -13,7 +15,7 @@
   </nav>
 </header>
 
-<section class="main">
+<section class="main" id="main">
 <table>
 <tr>
   <th><a href="">Title</a></th>
@@ -84,7 +86,7 @@
 <b>
 <label>Search by keyword, title, or description:</label> &nbsp;
 <input type="text" />
-<input type="submit" Value="Search" />
+<input type="submit" Value="Search" onclick="search()" />
 </b>
 &nbsp; &nbsp; <a href="">Subscribe to this search</a>
 </section>
