@@ -171,7 +171,6 @@ span.calendar {
   border: 5px solid #f4f4d6
 }
 
-
 section.main-researcher {
   position: relative;
   top: 0px;
@@ -213,4 +212,15 @@ span.login {
   font-weight: bold;
   text-align: right;
   vertical-align: top;
+}
+
+.overlay {
+   display:none;
+   position:fixed;
+   top:0px;
+   left:0px;
+   z-index:10;
+   width:100%;
+   height:100%;
+   background-color:#EEFFFF;
 }
