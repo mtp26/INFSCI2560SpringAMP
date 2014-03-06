@@ -1,0 +1,258 @@
+/* Semantic styling */
+body {
+  color: #000000;
+  background: #cccc99;
+  font-family: Garmond, serif;
+  font-size: 1em;
+  margin-top: 75px;
+  width:100%;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 49px;
+  margin: 0px 0px 49px 0px;
+  background: url(../images/pitt-logo-bluebkg.gif) left top no-repeat #111150;
+  border-bottom: 5px solid #cccc99; 
+  z-index: 2;
+}
+
+/* Edit Study Styling */
+#left_side {
+  position: fixed;
+  top: 54px;
+  left: 5px;
+  width: 480px;
+  color: #000000;       
+  font-size: 0.75em;
+  background: #cccc99;
+  padding: 5px;
+  z-index: 2;
+}
+
+#left_side input[type="text"], input[type="URL"] {
+	width: 60%;
+}
+
+#alert_length, #alert_pay {
+	position: relative;
+	left: 25px;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+#right_side {
+  position: fixed;
+  top: 54px;
+  right: 10px;
+  width: 310;
+  color: #000000;       
+  font-size: 0.75em;
+  background: #cccc99;
+  padding: 5px;
+  z-index: 3;
+}
+
+#researcher_info {
+	border: solid 1px;
+	padding: 2px;
+	text-align: center;
+}
+
+#researcher_info input {
+	width: 75%;
+}
+
+#pi_title {
+	font-weight: bold;
+}
+
+/* Study Information Styling */
+#time_info {
+    position: fixed;
+    top: 54px;
+    left: 10px;
+    width: 50%;
+    color: #000000;       
+    font-size: 0.9em;
+    background: #cccc99;
+    padding: 5px;
+    z-index: 2;
+}
+
+#eligibility {
+    position: fixed;
+    top: 54px;
+    right: 10px;
+    width: 50%;
+    color: #000000;       
+    font-size: 0.9em;
+    background: #cccc99;
+    padding: 5px;
+    z-index: 3;
+}
+
+#describe {
+	position: fixed;
+	top: 275px;
+	width:100%;
+}
+
+#keywords {
+	position: fixed;
+	top: 400px;
+	left: 20px;
+	font-size:0.75em;
+}
+
+#buttons {
+	position: fixed;
+	top: 400px;
+	right: 50px;
+}
+
+/* Link Styling */
+a:link { color: #23238e; }
+a:visited { color: #6b238e; }
+a:hover { color: #7093db; }
+a:active { color: #871f78; }
+a.current { font-weight: bold; }
+
+/* Header Styling */
+h1 {
+  color: #545454;
+  font-size: 2em;
+}
+
+h2 {
+  color: #545454;
+  font-size: 1.5em;
+}
+
+h2.banner {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+}
+
+h3 {
+  color: #545454;
+  font-size: 1.2em;
+  margin: 0px;
+  display: inline;
+}
+
+/* Other Styles */
+label {
+  display: inline-block;
+  text-align: left;
+  font-weight: bold; 
+}
+
+img {
+  border: 1px solid #000000;
+  float: left;
+  margin-right: 10px;
+}
+
+.collapses {
+	display:none;
+}
+
+.collapses:active {
+	display: inline-block;
+}
+
+/* Used to modify drop-down button on StudyInformation popup. Needs to be fixed for two options.*/
+.contact{
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 0 1px 1px #000, inset 0 1px 0 #000;  
+    padding: 0px 80px 0px 10px;
+    height: 38px;
+    display: inline-block;
+    position: relative;
+    border-radius: 4px;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+.contact-text{
+    padding-top: 5px;
+    display: block;
+    font-size: 18px;
+    white-space: nowrap;
+    color: #000;
+    text-shadow: 0 1px 0 #000;
+    transition: all 0.3s linear;
+}
+
+.contact-slide-phone{
+    position:absolute;
+    top: 35px;
+    left: 0px;
+    width: auto;
+    right: 52px;
+    height: 0px;
+    background: #fff;
+    color: #000;
+    font-size: 13px;
+    white-space: nowrap;
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-indent: 15px;
+    overflow: hidden;
+    line-height: 30px;
+    box-shadow: 
+        -1px 0px 1px rgba(255,255,255,0.4), 
+        1px 1px 1px rgba(0,0,0,0.5) inset;
+    transition: height 0.3s linear;
+}
+
+.contact-slide-email{
+    position:absolute;
+    top: 35px;
+    left: 0px;
+    width: auto;
+    right: 52px;
+    height: 0px;
+    background: #fff;
+    color: #000;
+    font-size: 13px;
+    white-space: nowrap;
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-indent: 15px;
+    overflow: hidden;
+    line-height: 30px;
+    box-shadow: 
+        -1px 0px 1px rgba(255,255,255,0.4), 
+        1px 1px 1px rgba(0,0,0,0.5) inset;
+    transition: height 0.3s linear;
+}
+
+.contact:hover{
+    height: 65px;
+}
+.contact:hover .contact-text{
+    color: #000;
+}
+.contact:hover .contact-slide-phone{
+    height: 30px;
+}
+
+.contact:hover .contact-slide-email{
+    height: 30px;
+}
+
+.contact:active {
+    position:relative;
+    top:1px;
+    background: #fff; 
+}
