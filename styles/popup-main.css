@@ -1,7 +1,7 @@
 /* Semantic styling */
 body {
   color: #000000;
-  background: #cccc99;
+  background: #f4f4d6;
   font-family: Garmond, serif;
   font-size: 1em;
   margin-top: 75px;
@@ -17,7 +17,7 @@ header {
   height: 49px;
   margin: 0px 0px 49px 0px;
   background: url(../images/pitt-logo-bluebkg.gif) left top no-repeat #111150;
-  border-bottom: 5px solid #cccc99; 
+  border-bottom: 5px solid #f4f4d6; 
   z-index: 2;
 }
 
@@ -30,7 +30,7 @@ header {
     height: 49px;
     margin: 0px 0px 49px 0px;
     background: #111150;
-    border-bottom: 5px solid #cccc99; 
+    border-bottom: 5px solid #f4f4d6; 
     z-index: 2;
 }
 
@@ -42,7 +42,7 @@ header {
   width: 480px;
   color: #000000;       
   font-size: 0.75em;
-  background: #cccc99;
+  background: #f4f4d6;
   padding: 5px;
   z-index: 2;
 }
@@ -65,7 +65,7 @@ header {
   width: 310;
   color: #000000;       
   font-size: 0.75em;
-  background: #cccc99;
+  background: #f4f4d6;
   padding: 5px;
   z-index: 3;
 }
@@ -92,7 +92,7 @@ header {
     width: 50%;
     color: #000000;       
     font-size: 0.9em;
-    background: #cccc99;
+    background: #f4f4d6;
     padding: 5px;
     z-index: 2;
 }
@@ -104,7 +104,7 @@ header {
     width: 50%;
     color: #000000;       
     font-size: 0.9em;
-    background: #cccc99;
+    background: #f4f4d6;
     padding: 5px;
     z-index: 3;
 }
