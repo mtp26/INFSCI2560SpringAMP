@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndications/"
+	xmlns:atom="http://www.w3.org/2005/Atom">
+	
+	<!-- General Study Page -->
+	<channel>
+		<title>Title</title>
+		<link>http://st25606.dreamhosters.com</link>
+		<pubDate>Thu, 10 Apr 2014 04:37:00 EST</pubDate>
+		<dc:creator>AMP</dc:creator>
+		<description>Research Study News Feed</description>
+		<language>en</language>
+		<sy:updatePeriod>daily</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+		<atom:link href="http://st25606.dreamhosters.com/Lecture10/Practice_10.2.xml" rel="self" type="application/rss+xml" />
+		<!-- Each item is an individual study -->
+		<item>
+			<title>Study Title</title>
+			<link>http://st25606.dreamhosters.com</link>
+			<pubDate>Thu, 10 Apr 2014 04:44:00 EST</pubDate>
+			<dc:creator>AMP</dc:creator>
+			<description>Sample study</description>
+		</item>
+	</channel>
+</rss>
