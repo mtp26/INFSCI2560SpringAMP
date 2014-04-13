@@ -147,3 +147,16 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
      $('#study'+id).show();
    });
 }
+
+// Start JQuery
+$(document).ready(function(){
+  $("div").hide();
+  // Accordion effect for search results
+  $("#test123").click(function() {
+    if ( $( "div" ).is( ":hidden" ) ) {
+        $( "div" ).show( "slow" );
+    } else {
+      $( "div" ).slideUp();
+    }
+  });
+});
