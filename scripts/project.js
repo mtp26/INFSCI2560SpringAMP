@@ -153,6 +153,7 @@ $(document).ready(function(){
   $("div").hide();
   // Accordion effect for search results
   $("td").click(function() {
-    $( "div" ).slideToggle();
+    $(this).parent("tr").hide();
+    $( "td > div" ).slideToggle();
   });
 });
