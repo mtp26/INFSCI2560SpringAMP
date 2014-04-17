@@ -15,17 +15,16 @@ function sendEmail() {
 
 /* Alert - Session Length Clarification */
 
-
 /* Age Eligibility */
 var ageHidden = true;
 function toggleAge() {
 	var ele = document.getElementById("age_elig_table");
 	if(ageHidden) {
-		ageHidden = false
+		ageHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		ageHidden = true
+		ageHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -35,11 +34,11 @@ var genderHidden = true;
 function toggleGender() {
 	var ele = document.getElementById("gender_elig_table");
 	if(genderHidden) {
-		genderHidden = false
+		genderHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		genderHidden = true
+		genderHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -49,11 +48,11 @@ var langHidden = true;
 function toggleLang() {
 	var ele = document.getElementById("lang_elig_table");
 	if(langHidden) {
-		langHidden = false
+		langHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		langHidden = true
+		langHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -63,11 +62,11 @@ var visionHidden = true;
 function toggleVision() {
 	var ele = document.getElementById("vision_elig_table");
 	if(visionHidden) {
-		visionHidden = false
+		visionHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		visionHidden = true
+		visionHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -77,11 +76,11 @@ var educationHidden = true;
 function toggleEducation() {
 	var ele = document.getElementById("education_elig_table");
 	if(educationHidden) {
-		educationHidden = false
+		educationHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		educationHidden = true
+		educationHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -91,11 +90,11 @@ var expHidden = true;
 function toggleExperience() {
 	var ele = document.getElementById("experience_elig_table");
 	if(expHidden) {
-		expHidden = false
+		expHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		expHidden = true
+		expHidden = true;
 		ele.style.display = "none";
 	}
 }
@@ -105,11 +104,11 @@ var otherHidden = true;
 function toggleOther() {
 	var ele = document.getElementById("other_elig_input");
 	if(otherHidden) {
-		otherHidden = false
+		otherHidden = false;
 		ele.style.display = "inline";
 	}
 	else {
-		otherHidden = true
+		otherHidden = true;
 		ele.style.display = "none";
 	}
 }
