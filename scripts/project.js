@@ -28,9 +28,9 @@ function addStudyTest() {
     Output: None
     Performs call to post the study details
 */
-function addStudy(title, length, compensation, eligibility, description, startDate, endDate) {
+function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ibr) {
   var url = "addStudy.php";
-  var params = "title="+title+"&length="+length+"&compensation="+compensation+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate;
+  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate+"&ibr="+ibr;
   //alert(params);
   post(url, params, function(req) {
     var res = req.responseText.split(":");
@@ -52,17 +52,20 @@ function addStudy(title, length, compensation, eligibility, description, startDa
     Output: None
     Gets study data from storage and adds to the document
 */
-function search() {
-   var $jsonObj
-   var url = "getdata.php";
 
+function search() {
+   var jsonObj;
+   var url = "getdatadb.php?type=studies";
    get(url, function(req) {
       var res = req.responseText;
-	//alert(res);
       jsonObj = JSON.parse(res);
       jsonObj.studies.forEach(function(data) {
+//        console.log(data.eligibility);
+  //      var o2 = JSON.parse(data.eligibility);
+    //    alert(o2.r1);
+      //  alert(o2.r2);
       addNewStudyTable($("#studies div").length, 
-        data.title, data.length, data.compensation, data.eligibility, data.description, data.startDate, data.endDate);
+        data.title, data.length, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
       });
    });
 }
