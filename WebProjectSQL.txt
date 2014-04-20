@@ -1,0 +1,27 @@
+drop table Participating;
+drop table Study;
+drop table Researcher;
+drop table Participant;
+drop table KeywordMatch;
+
+create table Researcher ( researcherId int auto_increment, firstName varchar(50), lastName varchar(50), password varchar(100), email varchar(100), phoneNumber varchar(20), primary key (researcherId) );
+
+create table Participant ( participantId int auto_increment, firstName varchar(30), lastName varchar(30), email varchar(100), primary key (participantId) );
+
+create table Study ( studyId int auto_increment, title varchar(300), length int, compensationAmount numeric, compensationType varchar(20), eligibility varchar(1000), description varchar(1000), startDate date, endDate date,  IBR varchar(20), ownerId int, primary key (studyId), foreign key (ownerId) references Researcher (researcherId) );
+
+create table Participating ( participantId int, studyId int, primary key(participantId, studyId) );
+
+create table KeywordMatch(studyId int, keywordId int, primary key (studyId, keywordId), foreign key (studyId) references Study (studyId), foreign key (keywordId) references Keywords (keywordId) );
+
+insert into Researcher (firstName, lastName, password, email) values ('Richard', 'Anderson', '', 'rla20@pitt.edu');
+insert into Researcher (firstName, lastName, password, email) values ('Max', 'Putas', '', 'mputas@someemail.com');
+insert into Researcher (firstName, lastName, password, email) values ('Kayla', 'Mormak', '', 'kmormak@thisotheremail.com');
+insert into Participant (firstName, lastName, email) values ('Random', 'Person', 'none@none.com');
+insert into Participant (firstName, lastName, email) values ('John', 'Doe', 'jonedoe@com.com');
+insert into Participant (firstName, lastName, email) values ('Jane', 'Doe', 'janedoe@com.com');
+insert into Participant (firstName, lastName, email) values ('The', 'Moon', 'themoon@orbiting.com');
+insert into Study (title, length, compensationAmount, compensationType, eligibility, description, startDate, endDate, ibr, ownerId) values ('A study of life', 60, 25, 'cash', '{\"r1\":\"No restrictions\",\"r2\":\"Healthy\"}', 'A study to determine how people live their lives', '2014-01-01', '2014-06-01', 'xyz2348', 1);
+insert into Participating values (1,1);
+insert into Participating values (2,1);
+insert into Participating values (3,1);
