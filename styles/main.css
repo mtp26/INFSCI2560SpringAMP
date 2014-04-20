@@ -107,7 +107,7 @@ section.main table, td {
   border-collapse: collapse;
 }
 
-section.main tr:nth-child(even) {
+section.main tr:nth-child(4n-1), tr:nth-child(4n-2) {
   background-color: #f4f4d6;
 }
 
