@@ -151,9 +151,10 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 // Start JQuery
 $(document).ready(function(){
   $("div").hide();
+  $(".box").parent('td').parent("tr").hide();
   // Accordion effect for search results
   $("td").click(function() {
-    $(this).parent("tr").hide();
-    $( "td > div" ).slideToggle();
+    //$(this).parent("tr").hide();
+    $( "td > div" ).slideToggle(function() { $(this).parent('td').parent('tr').show(); });
   });
 });
