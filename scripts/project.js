@@ -150,32 +150,10 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 
 // Start JQuery
 $(document).ready(function(){
-/*
-  $("div").hide();
-  // Accordion effect for search results
-    //$(this).parent("tr").hide();
-    $( "td > div" ).slideToggle(function() { $(this).parent('td').parent('tr').show(); });
-  });
-*/
-  $(".box").parent('td').parent("tr").hide();
-  $("td").click(function() {
-      /*
-    $(this).parent('tr').next()
-      .children('td, th')
-      .animate({ padding: 0 })
-      .wrapInner('<div />')
-      .children()
-      //.slideDown(function() { $(this).closest('tr').show(); });
-      .slideDown(function() { $(this).closest('tr').show(); });
-      */
-    $(this).parent('tr').next().show(function() {
-      $(this).parent('tr').next()
-      .children('td, th')
-      .animate({ padding: 0 })
-      .wrapInner('<div />')
-      .children()
-      //.slideDown(function() { $(this).closest('tr').show(); });
-      .fadeIn();
-    }); 
-  })
+  var detailedResults = $(".box").parent('td').parent("tr").hide();
+  $("a").click(function(event) {
+    event.preventDefault();
+    detailedResults.hide();
+    $(this).parent('td').parent('tr').next().show();
+  }); 
 });
