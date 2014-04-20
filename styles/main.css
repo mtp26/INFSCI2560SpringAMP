@@ -138,6 +138,21 @@ header {
   z-index: 2;
 }
 
+footer {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  margin: 0px;
+  padding: 2px;
+  border-top: 5px solid #f4f4d6; 
+  background: #111150;
+  z-index: 2;
+  color: #f4f4d6;
+  font-size: 0.75em;
+}
+
 nav { padding:2px 2px 2px 5px; }
 
 nav a { text-decoration: none; }
