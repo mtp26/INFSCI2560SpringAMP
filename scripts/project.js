@@ -19,7 +19,7 @@ function closeit(id) {
     **** Needs to be removed once front end is complete ****
 */
 function addStudyTest() {
-   addStudy("TestStudy", "There is no info", "never", "tomorrow", "null");
+  addStudy("Test", "30", "$50", "Cash", "{\"r1\":\"No rats\",\"r2\":\"21 years or older\"}", "None", "2015-02-02", "2015-03-03", 1, "ibrnumber");
 }
 
 /*
@@ -28,10 +28,10 @@ function addStudyTest() {
     Output: None
     Performs call to post the study details
 */
-function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ibr) {
+function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ownerId,ibr) {
   var url = "addStudy.php";
-  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate+"&ibr="+ibr;
-  //alert(params);
+  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr;
+  console.log(params);
   post(url, params, function(req) {
     var res = req.responseText.split(":");
     //alert(res);
