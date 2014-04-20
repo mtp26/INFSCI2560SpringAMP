@@ -246,3 +246,7 @@ span.login {
    height:100%;
    background-color:#EEFFFF;
 }
+
+.errorText {
+  color:red;
+}
