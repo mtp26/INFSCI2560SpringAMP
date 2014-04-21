@@ -42,7 +42,7 @@
   $pw = "d6q7pY";
   $db = "inf2560_g1";  
     $returnVal = "";
-    $query = "select * from Study where ownerId = '$id'";
+    $query = "select s.studyId, s.title, s.length, s.compensationAmount, s.compensationType, s.eligibility, s.description, s.startDate, s.endDate, s.IBR, s.ownerId, count(p.participantId) as numParticipating from Participant p, Participating q, Study s where p.participantId = q.participantId and s.studyId = q.studyId and s.ownerId = '$id' group by s.studyId";
     $con = new mysqli($hs, $un, $pw, $db);
     if($con->connect_errno > 0) {
       echo 'Cannot connect to database ['.$con->connect_error.']';
@@ -63,6 +63,7 @@
           $studies[$i]['startDate'] = $row['startDate'];
           $studies[$i]['endDate'] = $row['endDate'];
           $studies[$i]['IBR'] = $row['ibr'];
+          $studies[$i]['numParticipating'] = $row['numParticipating'];
           $i++;
         }
         $jsonRes = json_encode($studies);
