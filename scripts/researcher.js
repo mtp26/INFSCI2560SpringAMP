@@ -1,12 +1,11 @@
 $(document).ready(function() {
   post("researcher.php", "", function(req) {
     var res = req.responseText;
-    alert(res);
    var jsonObj = JSON.parse(res);
    jsonObj.studies.forEach(function(data) {
       var newRow = document.createElement("tr");
       var tdStudy = document.createElement("td");
-      tdStudy.innerHTML = data.title;
+      tdStudy.innerHTML = "<a href='web/EditStudy.html?id=" + data.studyId + "' onclick=\"return !window.open(this.href, 'Add/Edit Study', 'width=800,height=700')\" target='_blank'>" +data.title +"</a>";
       var tdTimeframe = document.createElement("td");
       tdTimeframe.innerHTML = data.startDate + " - " + data.endDate;
       var tdSubscribed = document.createElement("td");
