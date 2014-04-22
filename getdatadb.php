@@ -25,7 +25,7 @@
 
   } else if('studies' == $type) {
 
-  $query = "select * from Study where";
+  $query = "select * from Study,Researcher where Study.ownerId = Researcher.researcherId and ";
   
   $start = $_GET['start'];
   $end = $_GET['end'];
@@ -46,13 +46,11 @@
   
   // Perform secondary query on previous resultset to limit overhead of like
   if($keyword) {
-    $query = "select * from ('.$query.') q where q.description like \'%".$keyword."%\'";
+    $query = 'select * from ('.$query.') q where q.description like \'%'.$keyword.'%\'';
   }
-  
   if($id) {
-    $query = "select * from Study where studyId='$id'";
+    $query = "select * from Study, Researcher where studyId = '$id' and Study.ownerId = Researcher.researcherId";
   }
-
   $con = new mysqli($hs, $un, $pw, $db);
   if($con->connect_errno > 0) {
     echo 'Cannot connect to database ['.$con->connect_error.']';
@@ -73,6 +71,12 @@
         $studies[$i]['startDate'] = $row['startDate'];
         $studies[$i]['endDate'] = $row['endDate'];
         $studies[$i]['IBR'] = $row['ibr'];
+        $studies[$i]['keywords'] = getKeywords($con, $row['studyId']);
+        $studies[$i]['researcherId'] = $row['researcherId'];
+        $studies[$i]['researcherFirstName'] = $row['firstName'];
+        $studies[$i]['researcherLastName'] = $row['lastName'];
+        $studies[$i]['researcherEmail'] = $row['email'];
+        $studies[$i]['researcherPhone'] = $row['phone'];
         $i++;
       }
       $jsonRes = json_encode($studies);
@@ -80,5 +84,17 @@
     }
   }
  }
+
+function getKeywords($con, $id) {
+  $keywords = "";
+  $query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id'";
+  if($res = $con->query($query)) {
+    while($row = $res->fetch_assoc()) {
+      $keywords .=$row['keyword'].":";
+    }
+  }
+  return $keywords;
+  }
+
 
 ?>
