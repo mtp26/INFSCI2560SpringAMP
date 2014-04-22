@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+  //$("#filterButton").click(function() {
+  //  search();
+  //});
 
 });
 
@@ -54,22 +56,37 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
 */
 
 function search() {
+   
    var jsonObj;
    var url = "getdatadb.php?type=studies";
+  
+  var keyword = $("#wordSearch").val();
+   var start = $("#startDate").val();
+   var end = $("#endDate").val();
+   if(keyword != "") {
+     url += "&keyword=" + keyword;
+   }
+   if(start != "") {
+     url += "&start=" + start;
+   }
+   if(end != "") {
+     url += "&end=" + end;
+   }
+   
    get(url, function(req) {
       var res = req.responseText;
       jsonObj = JSON.parse(res);
       jsonObj.studies.forEach(function(data) {
-//        console.log(data.eligibility);
-  //      var o2 = JSON.parse(data.eligibility);
-    //    alert(o2.r1);
-      //  alert(o2.r2);
+      //console.log(data.eligibility);
+      //var o2 = JSON.parse(data.eligibility);
+      //alert(o2.r1);
+      //alert(o2.r2);
       addNewStudyTable($("#studies div").length, 
         data.title, data.length, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
       });
    });
 }
-
+ 
 /*
     post(url, params, fn)
     Input: location of resource, parameters to send, callback function

@@ -153,7 +153,7 @@
 <section class="search">
 <b>
 <label>Search by keyword, title, or description:</label> &nbsp;
-<input type="text" />
+<input type="text" id="wordSearch"/>
 <input type="submit" Value="Search" onclick="search()" />
 </b>
 &nbsp; &nbsp; <a href="">Subscribe to this search</a>
@@ -164,20 +164,20 @@
   <p>
   <label>Length of experiment</label> 
   <br />
-  <select>
-    <option value="">&lt; 30 min.</option>
-    <option value="">30-45 min.</option>
-    <option value="">45-60 min.</option>
-    <option value="">60-75 min.</option>
-    <option value="">75-90 min.</option>
-    <option value="">60-75 min.</option>
-    <option value="">90+ min.</option>
+  <select id="explength">
+    <option value="0:30">&lt; 30 min.</option>
+    <option value="30:45">30-45 min.</option>
+    <option value="45:60">45-60 min.</option>
+    <option value="60:75">60-75 min.</option>
+    <option value="75:90">75-90 min.</option>
+    <option value="60:75">60-75 min.</option>
+    <option value="90:inf">90+ min.</option>
   </select>
   </p>
   <p>
   <label>Compensation amount</label>
   <br />
-  <select>
+  <select id="compensationAmount">
     <option value="">$0</option>
     <option value="">$1-$10</option>
     <option value="">$10-$20</option>
@@ -190,7 +190,7 @@
   <p>
   <label>Compensation type</label>
   <br />
-  <select>
+  <select id="compensationType">
     <option value="">Cash</option>
     <option value="">WePay</option>
     <option value="">Gift Certificate</option>
@@ -204,11 +204,11 @@
     <br />
     <label>From:</label>
     <br />
-    <input type="date" />
+    <input id="startDate" type="date" />
     <br />
     <label>To:</label>
     <br />
-    <input type="date" />
+    <input id="endDate" type="date" />
   </p>
 </section>
 

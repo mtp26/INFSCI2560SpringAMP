@@ -37,7 +37,7 @@
   } else if($start) {
     $query = $query . " endDate >= date '$start'";
   } else if($end) {
-    $query = $query . " startDate) <= date '$end'";
+    $query = $query . " startDate <= date '$end'";
   } else {
     // If not, return all studies that end after today
     $query = $query . ' endDate >= sysdate()';
