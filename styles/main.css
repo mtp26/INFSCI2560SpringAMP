@@ -10,7 +10,9 @@ a:visited { color: #6b238e; }
 a:hover { color: #7093db; }
 a:active { color: #871f78; }
 
-a.current { font-weight: bold; }
+a.current { 
+  font-weight: bold; 
+}
 
 h1 {
   color: #545454;
@@ -158,6 +160,7 @@ nav { padding:2px 2px 2px 5px; }
 nav a { text-decoration: none; }
 
 div.box {
+  color: #000000;
   border: 1px solid #a3bddd;
   padding: 5px;
   margin: 0px;
@@ -178,12 +181,16 @@ span.calendar {
   margin: 20px;
 }
 
-#contact-link {
+.contact-link {
   color: #ffffff;
   background-color: #000055;
   margin: 20px;
   padding: 10px;
   border: 5px solid #f4f4d6
+}
+
+a.contact-link {
+  color: #ffffff !important;
 }
 
 #add-study {
