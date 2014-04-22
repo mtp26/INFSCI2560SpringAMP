@@ -30,6 +30,7 @@
   $start = $_GET['start'];
   $end = $_GET['end'];
   $keyword = $_GET['keyword'];
+  $id = $_GET['id'];
 
   // Check if time range query selected
   if($start && $end) {
@@ -45,9 +46,13 @@
   
   // Perform secondary query on previous resultset to limit overhead of like
   if($keyword) {
-    $query = 'select * from ('.$query.') q where q.description like \'%'.$keyword.'%\'';
+    $query = "select * from ('.$query.') q where q.description like \'%".$keyword."%\'";
   }
   
+  if($id) {
+    $query = "select * from Study where studyId='$id'";
+  }
+
   $con = new mysqli($hs, $un, $pw, $db);
   if($con->connect_errno > 0) {
     echo 'Cannot connect to database ['.$con->connect_error.']';
