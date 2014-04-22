@@ -48,6 +48,16 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
   });
 }
 
+function searchById(id) {
+   var jsonObj;
+   var url = "getdatadb.php?type=studies&id="+id;
+   get(url, function(req) {
+      var res = req.responseText;
+      jsonObj = JSON.parse(res);
+      // Add function to call here with jsonObj.   jsonObj.studies[0] will get the result if found
+   });
+}
+
 /*
     search()
     Input: Current none
