@@ -5,6 +5,10 @@ var startDateFilter = "";
 var endDateFilter = "";
 var filter = false;
 
+// Template variables for search results
+var searchRowTemplate = "";
+var searchDetailedTemplate = ""; 
+
 
 /*
     closeit(id)
@@ -59,6 +63,47 @@ function searchById(id, func) {
    });
 }
 
+// Adds a new row to the search results
+function addSearchResult(study)
+{
+  // Do a deep copy of the row templates
+  var resultRow = jQuery.extend(true, {}, searchRowTemplate);
+  var resultDetailed = jQuery.extend(true, {}, searchDetailedTemplate);
+
+  $(".length").html(study.studyLength);
+  $(".compensationAmount").html(study.compensationAmount);
+  $(".compensationType").html(study.compensationType);
+  resultRow.html($(".title").html(study.title));
+  $(".startDate").html(study.startDate);
+  $(".endDate").html(study.startDate);
+  $(".description").html(study.description);
+
+  $(".pubCal").attr("href", study.calPub);
+
+  $(".researcherFirstName").html(study.researcherFirstName);
+  $(".researcherLastName").html(study.researcherLastName);
+
+  $(".researcherEmail").attr("href", "mailto:" + study.researcherEmail);
+  $(".researcherEmail").html(study.researcherEmail);
+  $(".researcherPhone").html(study.researcherPhone);
+
+  // Keyword parsing and display
+  var keywordsStr = study.keywords.slice(0,-1);
+  var keywords = study.keywords.split(":");
+  $.each(keywords, function(ind, val) {
+    var keyword = $('<a>').attr("href", "").append(val);
+    $(".keywords").append(keyword);
+    $(".keywords").append(" ");
+  });
+
+  // Eligibility parsing
+  eligibility = jQuery.parseJSON(study.eligibility);
+  $(".eligibility").html(eligibility.Elig_Other);
+
+  $("#searchResults").append(resultRow);
+  $("#searchResults").append(resultDetailed);
+}
+
 /*
     search()
     Input: Current none
@@ -105,8 +150,9 @@ function search() {
       //var o2 = JSON.parse(data.eligibility);
       //alert(o2.r1);
       //alert(o2.r2);
-      addNewStudyTable($("#studies div").length, 
-        data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
+      //addNewStudyTable($("#studies div").length, 
+      //  data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
+      addSearchResult(data);
       });
    });
 }
@@ -197,8 +243,8 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 $(document).ready(function(){
 
 // Save template and remove all search results and header
-var searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone();
-var searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone();
+searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone();
+searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone();
 $("#searchDetailedTemplate").remove();
 $("#searchRowTemplate").remove();
 
