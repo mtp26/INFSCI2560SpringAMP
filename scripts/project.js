@@ -197,6 +197,8 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 }
 
 // Start JQuery
+
+// Hide/show study details
 $(document).ready(function(){
   var detailedResults = $(".box").parent('td').parent("tr").hide();
   $("a").click(function(event) {
@@ -205,6 +207,7 @@ $(document).ready(function(){
     $(this).parent('td').parent('tr').next().show();
   }); 
 
+// Apply filter
   $("#filterButton").click(function() {
     lengthFilter = $("#explength").val();
     compAmtFilter = $("#compensationAmount").val();

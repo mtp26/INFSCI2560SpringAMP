@@ -11,7 +11,7 @@ create table Researcher ( researcherId int auto_increment, firstName varchar(50)
 
 create table Participant ( participantId int auto_increment, firstName varchar(30), lastName varchar(30), email varchar(100), primary key (participantId) );
 
-create table Study ( studyId int auto_increment, title varchar(300), length int, compensationAmount numeric, compensationType varchar(20), eligibility text, description text, startDate date, endDate date,  IBR varchar(20), ownerId int, calPub text, calPriv text, primary key (studyId), foreign key (ownerId) references Researcher (researcherId) );
+create table Study ( studyId int auto_increment, title varchar(300), length int, compensationAmount numeric, compensationType varchar(20), eligibility text, description text, startDate date, endDate date,  IBR varchar(20), ownerId int, calPub text, calPriv text, modTime timestamp default current_timestamp on update current_timestamp, primary key (studyId), foreign key (ownerId) references Researcher (researcherId) );
 
 create table Participating ( participantId int, studyId int, primary key(participantId, studyId) );
 
