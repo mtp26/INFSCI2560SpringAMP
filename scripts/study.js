@@ -18,7 +18,7 @@ function displayStudy(jsonObj)
   var study = jsonObj.studies[0];
 
   // Need to calculate hours here
-  $(".length").html(study.length);
+  $(".length").html(study.studyLength/60);
   $(".compensationAmount").html(study.compensationAmount);
   $(".compensationType").html(study.compensationType);
   $(".title").html(study.title);
