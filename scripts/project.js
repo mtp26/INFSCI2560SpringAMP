@@ -120,6 +120,12 @@ function addSearchResult(study)
   $("#searchResults").append(resultDetailed);
 }
 
+// Remove all results from the search table
+function clearSearchResults()
+{
+  $("#searchResults").find("tr:gt(0)").remove();
+}
+
 /*
     search()
     Input: Current none
@@ -168,6 +174,7 @@ function search() {
       //alert(o2.r2);
       //addNewStudyTable($("#studies div").length, 
       //  data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
+      clearSearchResults();
       addSearchResult(data);
       });
    });
