@@ -88,7 +88,7 @@
       while($row = $res->fetch_assoc()) {
         $studies[$i]['studyId'] = $row['studyId'];
         $studies[$i]['title'] = $row['title'];
-        $studies[$i]['length'] = $row['length'];
+        $studies[$i]['studyLength'] = $row['length'];
         $studies[$i]['compensationAmount'] = $row['compensationAmount'];
         $studies[$i]['compensationType'] = $row['compensationType'];
         $studies[$i]['eligibility'] = stripSlashes($row['eligibility']);
