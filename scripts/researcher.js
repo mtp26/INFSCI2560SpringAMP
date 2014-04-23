@@ -1,4 +1,15 @@
+$("html").hide();
+post("researcher.php", "", function(req) {
+    var res = req.responseText;
+   var jsonObj = JSON.parse(res);
+   if(jsonObj.redirect) {
+     window.location = 'login.html';
+   } 
+   $("html").show();
+});
+
 $(document).ready(function() {
+  $("html").show();
   post("researcher.php", "", function(req) {
     var res = req.responseText;
    var jsonObj = JSON.parse(res);
@@ -24,6 +35,11 @@ $(document).ready(function() {
    });
   });
 });
+
+function logout() {
+  $.get("logout.php",null);
+  window.location = "login.html";
+}
 
 /*
     post(url, params, fn)
