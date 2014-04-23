@@ -197,8 +197,8 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 $(document).ready(function(){
 
 // Save template and remove all search results and header
-var searchRowTemplate = $("#searchRowTemplate").clone();
-var searchDetailedTemplate = $("#searchDetailedTemplate").clone();
+var searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone();
+var searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone();
 $("#searchDetailedTemplate").remove();
 $("#searchRowTemplate").remove();
 
@@ -206,8 +206,6 @@ $("#searchResults").find("tr:gt(0)").remove();
 $("#searchHeader").hide();
 
 $("#searchHeader").show();
-//$("#searchResults").append('<tr>');
-//$("#searchResults").append('<td>');
 
 $("#searchResults").append(searchRowTemplate);
 $("#searchResults").append(searchDetailedTemplate);
