@@ -2,63 +2,56 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
+	<script src="../scripts/popups.js"></script>
 	<script src="../scripts/jquery-2.1.0.js"></script>
-	<script src="../scripts/popups-jquery.js"></script>
 </head>
 <body>
 	<header id="little_header">
 		<h2 class="banner">Add/Edit Study Information</h2>
 	</header>
-	<form name="edit_study" action="" method="">
-		<div id ="left_side">
-			<div id="title">
-				<p id="title_input">
-					<label for="title_input">Title:</label> 
-					<input type="text" name="title" id="title_input">
-				</p>
-			</div>
-			<div id="timeframe">
-				<div id="time">
+	<form name="edit_study">
+		<section id="left_side">
+			<article id="title">
+				<p id="title_input"><label for="title_input">Title:</label> <input type="text" name="title" id="title_input"></p>
+			</article>
+			<article id="timeframe">
+				<p id="start_input">
 					<label for="start_date_iput">Start Date:</label> 
 					<input type="date" name="start_date" id="start_date_input"/>
+				</p>
+				<p id="end_input">
 					<label for="end_date_input">End Date:</label> 
 					<input type="date" name="end_date" id="end_date_input"/>
-				</div>
-				<p id="session_info">
-					<label for="session_num_input">Number of Sessions:</label> 
-					<input type="number" name="session_num" id="session_num_input"/>
+				</p>
+				<p id="length_input">
 					<label for="session_length_input">Session Length:</label> 
-					<select name="session_length" id="session_length_input">
-						<option value="&lt;30 mins">&lt;30 mins</option>
-						<option value="30-45 mins">30-45 mins</option>
-						<option value="45-60 mins">45-60 mins</option>
-						<option value="60-75 mins">60-75 mins</option>
-						<option value="75-90 mins">75-90 mins</option>
-						<option value="&gt;90 mins">&gt;90 mins</option>
-					</select>
-				</p>
-				<p class = "hidden" id="alert_length">
-					Please specify session length in description.
-				</p>
+					<select name="session_length" id="session_length_input" />
+					<option value="&lt;30 mins">&lt;30 mins</option>
+					<option value="30-45 mins">30-45 mins</option>
+					<option value="45-60 mins">45-60 mins</option>
+					<option value="60-75 mins">60-75 mins</option>
+					<option value="75-90 mins">75-90 mins</option>
+					<option value="&gt;90 mins">&gt;90 mins</option>
+				</select>
+				<p class="collapses" id="alert_length">Please specify session length in description.</p>
 				<!-- Warning appears to discuss time in description if >90 mins -->
-				<p id="calendar_public">
-					<label for="public_cal">Public Calendar ID:</label>
+				<p id="repeat_input">
+					<label for="session_num_input">Number of Sessions:</label> 
+					<input type="number" name="session_num" id="session_num_input" />
+				</p>
+				<p id="calendar_input">
+					<label for="session_cal_url">Link to Session Calendar:</label>
 					<br>
-					<input type="URL" name="public_cal" id="public_cal" />
+					<input type="URL" name="session_cal_url"id="session_cal_url" />
 				</p>
-				<p id="calendar_private">
-					<label for="private_cal">Private Calendar ID:</label>
-					<br>
-					<input type="URL" name="private_cal"id="private_cal" />
+			</article>
+			<article id="location">
+				<p id="location_input">
+					<label for="location_input">Location of Study:</label> 
+					<input type="text" name="location" id="location_input" />
 				</p>
-			</div>
-			<div id="irb">
-				<p id="irb_input">
-					<label for="irb_input">IRB Number:</label> 
-					<input type="text" name="irb" id="irb_input" />
-				</p>
-			</div>
-			<div id="payment">
+			</article>
+			<article id="payment">
 				<p id="pay_method">
 					<label for="pay_type">Payment:</label> 
 					<input type="text" name="pay_type" id="pay_type" list="paymethods" />
@@ -74,33 +67,27 @@
 					<label for="pay_value_input">Value:</label> 
 					<input type="number" name="pay_value" id="pay_value_input"/>
 					<br>
-					<span class="hidden" id="alert_pay">
-						Value cannot be 0 for this payment type.
-					</span>
+					<span class="collapses" id="alert_pay">Value cannot be 0 for this payment type.</span>
 				</p>
-			</div>
-			<div id="description">
+			</article>
+			<article id="description">
 				<p id="keyword_input">
 					<label for="keywords_input">Keywords:</label> 
 					<input type="text" name="keyword" id="keywords_input" />
 				</p>
-				<p id="description_title">
-					<label for="description_input">Description:</label> 
-				</p>
-				<p id="description_input">
-					<textarea name="description" id="description_input" cols="50" rows="10"></textarea>
-				</p>
-			</div>
-			<div id="submit">
+				<p id="description_title"><label for="description_input">Description:</label> </p>
+				<p id="description_input"><textarea name="description" id="description_input" cols="50" rows="10"></textarea></p>
+			</article>
+			<article id="submit">
 				<input type="submit" value="Submit" />
-			</div>
-		</div>
-		<div id="right_side">
-			<div id="researcher_info">
+			</article>
+		</section>
+		<section id="right_side">
+			<article id="researcher_info">
 				<p id="pi_title"><h3>Confirm Researcher Info:</h3></p>
 				<p id="pi_name">
 					<label for="pi_name">Name:</label> 
-					<input type="text" name="pi_name" id="pi_name" value="$Researchers_Name" required />
+					<input type="text" name="pi_name" id="pi_name" value="$Researchers_Name" />
 				</p>
 				<p id="pi_phone">
 					<label for="pi_phone">Phone:</label> 
@@ -108,10 +95,10 @@
 				</p>
 				<p id="pi_email">
 					<label for="pi_email">Email:</label> 
-					<input type="email" name="pi_email" id="pi_email" value="$Researchers_Email" required />
+					<input type="email" name="pi_email" id="pi_email" value="$Researchers_Email" />
 				</p>
-			</div>
-			<div id="eligibility_input">
+			</article>
+			<article id="eligibility_input">
 				<p id="eligibility_head">
 					<label for="no_restrict">Eligibility:</label> 
 					<input type="checkbox" name="no_restrict" id="no_restrict" value="No Restrictions" checked="checked"/> 
@@ -121,16 +108,11 @@
 					To restrict eligibility, select the user groups that qualify for the study.
 					<br>
 					Categories with 0 restrictions are assumed to be freely eligible.
-				</p>
-				<div id="age">
-					<div class="changes" id="age_label">
-						<p>
-							<label for="age_elig">Age:</label> 
-							<span id="age_count">$number</span> restrictions in age category
-						</p>
-					</div>
-					<div class="hidden" id="age_table">
-						<table>
+				</p> 
+				<div id="age_elig" onclick="toggleAge();">
+					<p id="age_elig_title"><label for="age_elig">Age:</label> $number of restrictions in age category</p>
+					<div class="collapses" id="age_elig_table">
+						<table id="age_elig_select">
 							<tr>
 								<td><input type="checkbox" name="age_elig" value="&lt;18" />&lt;18</td>
 								<td><input type="checkbox" name="age_elig" value="18-24" />18-24</td>
@@ -144,15 +126,10 @@
 						</table>
 					</div>
 				</div>
-				<div id="gender">
-					<div class="changes" id="gender_label">
-						<p>
-							<label for="gender_elig">Gender:</label>
-							<span id="gender_count">$number</span> restrictions in gender category
-						</p>
-					</div>
-					<div class="hidden" id="gender_table">
-						<table>
+				<div id="gender_elig" onclick="toggleGender();">
+					<p id="gender_elig_title"><label for="gender_elig">Gender:</label> $number of restrictions in gender category</p>
+					<div class="collapses" id="gender_elig_table">
+						<table id="gender_elig_select">
 							<tr>
 								<td><input type="checkbox" name="gender_elig" value="male" />Male</td>
 								<td><input type="checkbox" name="gender_elig" value="female" />Female</td>
@@ -160,14 +137,9 @@
 						</table>
 					</div>
 				</div>
-				<div id="language">
-					<div class="changes" id="lang_label">
-						<p>
-							<label for="lang_elig">Language:</label>
-							<span id="lang_count">$number</span> restrictions in language category
-						</p>
-					</div>
-					<div class="hidden" id="lang_table">
+				<div id="lang_elig" onclick="toggleLang();">
+					<p id="lang_elig_title"><label for="lang_elig">Language:</label> $number of restrictions in gender category</p>
+					<div class="collapses" id="lang_elig_table">
 						<table>
 							<tr>
 								<td><input type="checkbox" name="lang_elig" value="native_eng" />Native English</td>
@@ -180,14 +152,9 @@
 						</table>
 					</div>
 				</div>
-				<div id="vision">
-					<div class="changes" id="vision_label">
-						<p>
-							<label for="vision_elig">Vision:</label>
-							<span id="vision_count">$number</span> restrictions in vision category
-						</p>
-					</div>
-					<div class="hidden" id="vision_table">
+				<div id="vision_elig" onclick="toggleVision();">
+					<p id="vision_elig_title"><label for="vision_elig">Vision:</label> $number of restrictions in gender category</p>
+					<div class="collapses" id="vision_elig_table">
 						<table>
 							<tr>
 								<td><input type="checkbox" name="vision_elig" value="20-20" />20/20 Uncorrected</td>
@@ -201,14 +168,9 @@
 						</table>
 					</div>
 				</div>
-				<div id="education">
-					<div class="changes" id="edu_label">
-						<p>
-							<label for="education_elig">Education:</label>
-							<span id="edu_count">$number</span> restrictions in education category
-						</p>
-					</div>
-					<div class="hidden" id="edu_table">
+				<div id="education_elig" onclick="toggleEducation();">
+					<p id="education_elig_title"><label for="education_elig">Education:</label> $number of restrictions in education category</p>
+					<div class="collapses" id="education_elig_table">
 						<table>
 							<tr>
 								<td><input type="checkbox" name="education_elig" value="primary" />Primary School</td>
@@ -223,14 +185,9 @@
 						</table>
 					</div>
 				</div>
-				<div id="experience">
-					<div class="changes" id="exp_label">
-						<p>
-							<label for="experience_elig">Experience:</label>
-							<span id="exp_count">$number</span> restrictions in experience category
-						</p>
-					</div>
-					<div class="hidden" id="exp_table">
+				<div id="experience_elig" onclick="toggleExperience();">
+					<p id="experience_elig_title"><label for="experience_elig">Experience:</label> $number of restrictions in experience category</p>
+					<div class="collapses" id="experience_elig_table">
 						<table>
 							<tr>
 								<td colspan="2">
@@ -249,37 +206,12 @@
 						</table>
 					</div>
 				</div>
-				<div id="citizenship">
-					<div class="changes" id="cit_label">
-						<p>
-							<label for="cit_elig">Citizenship:</label>
-							<span id="cit_count">$number</span> restrictions in citizenship category
-						</p>
-					</div>
-					<div class="hidden" id="cit_table">
-						<table>
-							<tr>
-								<td><input type="checkbox" name="cit_elig" value="US_Citizen" />US Citizen</td>
-								<td><input type="checkbox" name="cit_elig" value="Non_US_Citizen" />Non US Citizen</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" name="cit_elig" value="Dual_Citizen" />Dual Citizen</td>
-								<td><input type="checkbox" name="cit_elig" value="Other" />Other - Please Specify</td>
-							</tr>
-						</table>
-					</div>
+				<div id="other_elig" onclick="toggleOther();">
+					<p id="other_elig_title"><label for="other_elig_input">Other Eligibility Requirements:</label> </p>
+					<div class="collapses" id="other_elig_input"><textarea name="other_elig" id="other_elig_input" cols="40" rows="10"></textarea></div>
 				</div>
-				<div id="other_elig">
-					<div class="changes" id="other_label">
-						<p><label for="other_input">Other Eligibility Requirements:</label> </p>
-					</div>
-					<div class="hidden" id="other_table">
-						<textarea name="other_elig" id="other_input" cols="40" rows="10"></textarea>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</form>
+			</article>
+		</section>
+	</form>
 </body>
 </html>
