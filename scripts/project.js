@@ -5,10 +5,6 @@ var startDateFilter = "";
 var endDateFilter = "";
 var filter = false;
 
-$(document).ready(function() {
-  
-
-});
 
 /*
     closeit(id)
@@ -196,10 +192,27 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
    });
 }
 
+
 // Start JQuery
+$(document).ready(function(){
+
+// Save template and remove all search results and header
+var searchRowTemplate = $("#searchRowTemplate").clone();
+var searchDetailedTemplate = $("#searchDetailedTemplate").clone();
+$("#searchDetailedTemplate").remove();
+$("#searchRowTemplate").remove();
+
+$("#searchResults").find("tr:gt(0)").remove();
+$("#searchHeader").hide();
+
+$("#searchHeader").show();
+//$("#searchResults").append('<tr>');
+//$("#searchResults").append('<td>');
+
+$("#searchResults").append(searchRowTemplate);
+$("#searchResults").append(searchDetailedTemplate);
 
 // Hide/show study details
-$(document).ready(function(){
   var detailedResults = $(".box").parent('td').parent("tr").hide();
   $("a").click(function(event) {
     event.preventDefault();
