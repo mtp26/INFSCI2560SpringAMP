@@ -25,6 +25,8 @@ function displayStudy(jsonObj)
   $(".startDate").html(study.startDate);
   $(".endDate").html(study.startDate);
   $(".description").html(study.description);
+
+  $(".pubCal").attr("href", study.calPub);
 }
 
 $(document).ready(function() {

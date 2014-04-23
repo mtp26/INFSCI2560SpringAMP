@@ -102,8 +102,8 @@
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
         $studies[$i]['researcherPhone'] = $row['phone'];
-        $studies[$i]['privCal'] = $row['privCal'];
-        $studies[$i]['pubCal'] = $row['pubCal'];
+        $studies[$i]['calPriv'] = $row['calPriv'];
+        $studies[$i]['calPub'] = $row['calPub'];
         $i++;
       }
       $jsonRes = json_encode($studies);
