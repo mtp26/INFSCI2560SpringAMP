@@ -18,8 +18,7 @@ function getURLParam(inparam)
 
 function displayStudy(jsonObj)
 {
-  $(".title").html(jsonObj);
-  alert(jsonObj);
+  $(".title").html(jsonObj.studies.title);
 }
 
 $(document).ready(function() {
