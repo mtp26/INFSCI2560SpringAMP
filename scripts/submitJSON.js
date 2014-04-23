@@ -79,6 +79,7 @@ $(document).ready(function(){
 				"vision_elig" : vision,
 				"education_elig" : edu,
 				"experience_elig" : exp,
+				"exp_prog" : $("#program_name").val();,
 				"cit_elig" : cit,
 				"other_input" : $("#other_input").val();
 			}
