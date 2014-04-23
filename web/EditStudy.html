@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
 	<script src="../scripts/jquery-2.1.0.js"></script>
 	<script src="../scripts/popups-jquery.js"></script>
+        <script src="../scripts/editStudy.js"></script>
 </head>
 <body>
 	<header id="little_header">
@@ -13,6 +14,7 @@
 		<div id ="left_side">
 			<div id="title">
 				<p id="title_input">
+                                        <input type="hidden" name="id" id="studyId" value="" />
 					<label for="title_input">Title:</label> 
 					<input type="text" name="title" id="title_input">
 				</p>
@@ -25,17 +27,8 @@
 					<input type="date" name="end_date" id="end_date_input"/>
 				</div>
 				<p id="session_info">
-					<label for="session_num_input">Number of Sessions:</label> 
-					<input type="number" name="session_num" id="session_num_input"/>
-					<label for="session_length_input">Session Length:</label> 
-					<select name="session_length" id="session_length_input">
-						<option value="&lt;30 mins">&lt;30 mins</option>
-						<option value="30-45 mins">30-45 mins</option>
-						<option value="45-60 mins">45-60 mins</option>
-						<option value="60-75 mins">60-75 mins</option>
-						<option value="75-90 mins">75-90 mins</option>
-						<option value="&gt;90 mins">&gt;90 mins</option>
-					</select>
+					<label for="session_length_input">Session Length(minutes):</label> 
+					<input type="number" name="session_length" id="session_length_input" />
 				</p>
 				<p class = "hidden" id="alert_length">
 					Please specify session length in description.
@@ -60,7 +53,7 @@
 			</div>
 			<div id="payment">
 				<p id="pay_method">
-					<label for="pay_type">Payment:</label> 
+					<label for="pay_type">Payment Type:</label> 
 					<input type="text" name="pay_type" id="pay_type" list="paymethods" />
 					<datalist id="paymethods">
 						<option value="Cash" />
@@ -71,7 +64,7 @@
 					</datalist>
 				</p>
 				<p id="pay_value">
-					<label for="pay_value_input">Value:</label> 
+					<label for="pay_value_input">Payment Amount:</label> 
 					<input type="number" name="pay_value" id="pay_value_input"/>
 					<br>
 					<span class="hidden" id="alert_pay">
@@ -81,7 +74,7 @@
 			</div>
 			<div id="description">
 				<p id="keyword_input">
-					<label for="keywords_input">Keywords:</label> 
+					<label for="keywords_input">Keywords(comma-separated list):</label> 
 					<input type="text" name="keyword" id="keywords_input" />
 				</p>
 				<p id="description_title">
@@ -92,7 +85,7 @@
 				</p>
 			</div>
 			<div id="submit">
-				<input type="submit" value="Submit" />
+				<button id="studySubmit">Submit</button
 			</div>
 		</div>
 		<div id="right_side">
