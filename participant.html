@@ -165,38 +165,41 @@
   <label>Length of experiment</label> 
   <br />
   <select id="explength">
+    <option value="0:5000000">Any</option>
     <option value="0:30">&lt; 30 min.</option>
     <option value="30:45">30-45 min.</option>
     <option value="45:60">45-60 min.</option>
     <option value="60:75">60-75 min.</option>
     <option value="75:90">75-90 min.</option>
     <option value="60:75">60-75 min.</option>
-    <option value="90:inf">90+ min.</option>
+    <option value="90:5000000">90+ min.</option>
   </select>
   </p>
   <p>
   <label>Compensation amount</label>
   <br />
   <select id="compensationAmount">
-    <option value="">$0</option>
-    <option value="">$1-$10</option>
-    <option value="">$10-$20</option>
-    <option value="">$20-$30</option>
-    <option value="">$30-$40</option>
-    <option value="">$40-$50</option>
-    <option value="">&gt; $50</option>
+    <option value="0:5000000">Any</option>
+    <option value="0:0">$0</option>
+    <option value="1:10">$1-$10</option>
+    <option value="10:20">$10-$20</option>
+    <option value="20:30">$20-$30</option>
+    <option value="30:40">$30-$40</option>
+    <option value="40:50">$40-$50</option>
+    <option value="50:5000000">&gt; $50</option>
   </select>
   </p>
   <p>
   <label>Compensation type</label>
   <br />
   <select id="compensationType">
-    <option value="">Cash</option>
-    <option value="">WePay</option>
-    <option value="">Gift Certificate</option>
-    <option value="">Course Credit</option>
-    <option value="">Other</option>
-    <option value="">None</option>
+    <option value="">Any</option>
+    <option value="Cash">Cash</option>
+    <option value="WePay">WePay</option>
+    <option value="Gift Certificate">Gift Certificate</option>
+    <option value="Course Credit">Course Credit</option>
+    <option value="Other">Other</option>
+    <option value="None">None</option>
   </select>
   </p>
   <p>
@@ -210,6 +213,7 @@
     <br />
     <input id="endDate" type="date" />
   </p>
+  <p><button id="filterButton">Apply Filter</button></p>
 </section>
 
 <footer>
