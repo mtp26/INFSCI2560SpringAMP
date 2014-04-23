@@ -17,8 +17,7 @@ function displayStudy(jsonObj)
   // Should only return one study per ID, but just to make sure
   var study = jsonObj.studies[0];
 
-  // Need to calculate hours here
-  $(".length").html(study.studyLength/60);
+  $(".length").html(study.studyLength);
   $(".compensationAmount").html(study.compensationAmount);
   $(".compensationType").html(study.compensationType);
   $(".title").html(study.title);
