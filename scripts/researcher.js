@@ -2,7 +2,11 @@ $(document).ready(function() {
   post("researcher.php", "", function(req) {
     var res = req.responseText;
    var jsonObj = JSON.parse(res);
-   jsonObj.studies.forEach(function(data) {
+   var name = jsonObj.researcher.firstName + " " + jsonObj.researcher.lastName;
+   $("#mainTitle").html("My Studies " + name);
+   $("#logoutId").html(name + "(<a href='#' onclick='logout();'>Logout</a>)");
+  
+   jsonObj.data.studies.forEach(function(data) {
       var newRow = document.createElement("tr");
       var tdStudy = document.createElement("td");
       tdStudy.innerHTML = "<a href='web/EditStudy.html?id=" + data.studyId + "' onclick=\"return !window.open(this.href, 'Add/Edit Study', 'width=800,height=700')\" target='_blank'>" +data.title +"</a>";

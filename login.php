@@ -8,7 +8,7 @@
   $password = $_POST['password'];
   $email = $_POST['email'];
 
-  $query = "select researcherId, email, password from Researcher where email='$email'";
+  $query = "select researcherId, firstName, lastName, email, password from Researcher where email='$email'";
 
   $con = new mysqli($hs, $un, $pw, $db);
   if($con->connect_errno > 0) {
@@ -26,6 +26,8 @@
         if($password == $row['password']) {
           echo 'pass';
           $_SESSION['rId'] = $row['researcherId'];
+          $_SESSION['firstName'] = $row['firstName'];
+          $_SESSION['lastName'] = $row['lastName'];
           $_SESSION['studies'] = getStudies($row['researcherId']);
         } else {
           echo 'password:Password incorrect, please re-enter and try again';
@@ -64,6 +66,7 @@
           $studies[$i]['endDate'] = $row['endDate'];
           $studies[$i]['IBR'] = $row['ibr'];
           $studies[$i]['numParticipating'] = $row['numParticipating'];
+          $studies[$i]['keywords'] = getKeywords($con, $row['studyId']);
           $i++;
         }
         $jsonRes = json_encode($studies);
@@ -71,6 +74,17 @@
       }
     }
     return $returnVal;
+  }
+
+function getKeywords($con, $id) {
+  $keywords = "";
+  $query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id'";
+  if($res = $con->query($query)) {
+    while($row = $res->fetch_assoc()) {
+      $keywords .=$row['keyword'].":";
+    }
+  }
+  return $keywords;
   }
 
 ?>
