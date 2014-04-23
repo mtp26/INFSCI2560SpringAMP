@@ -18,7 +18,14 @@ function getURLParam(inparam)
 
 function displayStudy(jsonObj)
 {
+  // Need to calculate hours here
+  $(".length").html(jsonObj.studies.length);
+  $(".compensationAmount").html(jsonObj.studies.compensationAmount);
+  $(".compensationType").html(jsonObj.studies.compensationType);
   $(".title").html(jsonObj.studies.title);
+  $(".startDate").html(jsonObj.studies.startDate);
+  $(".endDate").html(jsonObj.studies.startDate);
+  $(".description").html(jsonObj.studies.description);
 }
 
 $(document).ready(function() {
