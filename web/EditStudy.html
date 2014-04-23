@@ -28,12 +28,12 @@
 				<p id="session_info">
 					<label for="session_length_input">Session Length:</label> 
 					<select name="session_length" id="session_length_input">
-						<option value="0">&lt;30 mins</option>
-						<option value="1">30-45 mins</option>
-						<option value="2">45-60 mins</option>
-						<option value="3">60-75 mins</option>
-						<option value="4">75-90 mins</option>
-						<option value="5">&gt;90 mins</option>
+						<option value="&lt;30 mins">&lt;30 mins</option>
+						<option value="30-45 mins">30-45 mins</option>
+						<option value="45-60 mins">45-60 mins</option>
+						<option value="60-75 mins">60-75 mins</option>
+						<option value="75-90 mins">75-90 mins</option>
+						<option value="&gt;90 mins">&gt;90 mins</option>
 					</select>
 				</p>
 				<p class = "hidden" id="alert_length">
@@ -112,7 +112,9 @@
 			</div>
 			<div id="eligibility_input">
 				<p id="eligibility_head">
-					<label for="eligibility_instructions">Eligibility:</label>
+					<label for="no_restrict">Eligibility:</label> 
+					<input type="checkbox" name="no_restrict" id="no_restrict" value="No Restrictions" checked="checked"/> 
+					No Restrictions
 				</p>
 				<p id="eligibility_instructions">
 					To restrict eligibility, select the user groups that qualify for the study.
@@ -123,20 +125,20 @@
 					<div class="changes" id="age_label">
 						<p>
 							<label for="age_elig">Age:</label> 
-							<span id="age_count">0</span> restrictions in age category
+							<span id="age_count">$number</span> restrictions in age category
 						</p>
 					</div>
 					<div class="hidden" id="age_table">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="age_elig" value="1" />&lt;18</td>
-								<td><input type="checkbox" name="age_elig" value="2" />18-24</td>
-								<td><input type="checkbox" name="age_elig" value="3" />25-32</td>
+								<td><input type="checkbox" name="age_elig" value="&lt;18" />&lt;18</td>
+								<td><input type="checkbox" name="age_elig" value="18-24" />18-24</td>
+								<td><input type="checkbox" name="age_elig" value="25-32" />25-32</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="age_elig" value="4" />33-44</td>
-								<td><input type="checkbox" name="age_elig" value="5" />45-60</td>
-								<td><input type="checkbox" name="age_elig" value="6" />&gt;60</td>
+								<td><input type="checkbox" name="age_elig" value="33-44" />33-44</td>
+								<td><input type="checkbox" name="age_elig" value="45-60" />45-60</td>
+								<td><input type="checkbox" name="age_elig" value="&gt;60" />&gt;60</td>
 							</tr>
 						</table>
 					</div>
@@ -145,14 +147,14 @@
 					<div class="changes" id="gender_label">
 						<p>
 							<label for="gender_elig">Gender:</label>
-							<span id="gender_count">0</span> restrictions in gender category
+							<span id="gender_count">$number</span> restrictions in gender category
 						</p>
 					</div>
 					<div class="hidden" id="gender_table">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="gender_elig" value="1" />Male</td>
-								<td><input type="checkbox" name="gender_elig" value="2" />Female</td>
+								<td><input type="checkbox" name="gender_elig" value="male" />Male</td>
+								<td><input type="checkbox" name="gender_elig" value="female" />Female</td>
 							</tr>
 						</table>
 					</div>
@@ -161,18 +163,18 @@
 					<div class="changes" id="lang_label">
 						<p>
 							<label for="lang_elig">Language:</label>
-							<span id="lang_count">0</span> restrictions in language category
+							<span id="lang_count">$number</span> restrictions in language category
 						</p>
 					</div>
 					<div class="hidden" id="lang_table">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="lang_elig" value="1" />Native English</td>
-								<td><input type="checkbox" name="lang_elig" value="2" />Non-Native English</td>
+								<td><input type="checkbox" name="lang_elig" value="native_eng" />Native English</td>
+								<td><input type="checkbox" name="lang_elig" value="foreign_eng" />Non-Native English</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="lang_elig" value="3" />Bilingual</td>
-								<td><input type="checkbox" name="lang_elig" value="4" />Other - Please Specify</td>
+								<td><input type="checkbox" name="lang_elig" value="bilingual" />Bilingual</td>
+								<td><input type="checkbox" name="lang_elig" value="other_lang" />Other - Please Specify</td>
 							</tr>
 						</table>
 					</div>
@@ -181,19 +183,19 @@
 					<div class="changes" id="vision_label">
 						<p>
 							<label for="vision_elig">Vision:</label>
-							<span id="vision_count">0</span> restrictions in vision category
+							<span id="vision_count">$number</span> restrictions in vision category
 						</p>
 					</div>
 					<div class="hidden" id="vision_table">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="vision_elig" value="1" />20/20 Uncorrected</td>
-								<td><input type="checkbox" name="vision_elig" value="2" />Glasses</td>
-								<td><input type="checkbox" name="vision_elig" value="3" />Contacts</td>
+								<td><input type="checkbox" name="vision_elig" value="20-20" />20/20 Uncorrected</td>
+								<td><input type="checkbox" name="vision_elig" value="glasses" />Glasses</td>
+								<td><input type="checkbox" name="vision_elig" value="contacts" />Contacts</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="vision_elig" value="4" />LASIK</td>
-								<td colspan="2"><input type="checkbox" name="vision_elig" value="5" />Other - Please Specify</td>
+								<td><input type="checkbox" name="vision_elig" value="lasik" />LASIK</td>
+								<td colspan="2"><input type="checkbox" name="vision_elig" value="other_vision" />Other - Please Specify</td>
 							</tr>
 						</table>
 					</div>
@@ -202,20 +204,20 @@
 					<div class="changes" id="edu_label">
 						<p>
 							<label for="education_elig">Education:</label>
-							<span id="edu_count">0</span> restrictions in education category
+							<span id="edu_count">$number</span> restrictions in education category
 						</p>
 					</div>
 					<div class="hidden" id="edu_table">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="education_elig" value="1" />Primary School</td>
-								<td><input type="checkbox" name="education_elig" value="2" />High School/GED</td>
-								<td><input type="checkbox" name="education_elig" value="3" />Some College</td>
+								<td><input type="checkbox" name="education_elig" value="primary" />Primary School</td>
+								<td><input type="checkbox" name="education_elig" value="hs-ged" />High School/GED</td>
+								<td><input type="checkbox" name="education_elig" value="some_college" />Some College</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="education_elig" value="4" />Associate's</td>
-								<td><input type="checkbox" name="education_elig" value="5" />Bachelor's</td>
-								<td><input type="checkbox" name="education_elig" value="6" />Post-Graduate</td>
+								<td><input type="checkbox" name="education_elig" value="associates" />Associate's</td>
+								<td><input type="checkbox" name="education_elig" value="bachelors" />Bachelor's</td>
+								<td><input type="checkbox" name="education_elig" value="post-grad" />Post-Graduate</td>
 							</tr>
 						</table>
 					</div>
@@ -224,7 +226,7 @@
 					<div class="changes" id="exp_label">
 						<p>
 							<label for="experience_elig">Experience:</label>
-							<span id="exp_count">0</span> restrictions in experience category
+							<span id="exp_count">$number</span> restrictions in experience category
 						</p>
 					</div>
 					<div class="hidden" id="exp_table">
@@ -232,16 +234,16 @@
 							<tr>
 								<td colspan="2">
 									<label for="exp_program_name">Program/Language:</label> 
-									<input type="text" name="program_name" id="program_name" />
+									<input type="text" name="exp_program_name" id="exp_program_name" />
 								</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="experience_elig" value="1" />No Education</td>
-								<td><input type="checkbox" name="experience_elig" value="2" />No Formal Education</td>
+								<td><input type="checkbox" name="experience_elig" value="none" />No Education</td>
+								<td><input type="checkbox" name="experience_elig" value="no_formal" />No Formal Education</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="experience_elig" value="3" />Formal Education</td>
-								<td><input type="checkbox" name="experience_elig" value="4" />Professional Experience</td>
+								<td><input type="checkbox" name="experience_elig" value="formal_ed" />Formal Education</td>
+								<td><input type="checkbox" name="experience_elig" value="professional" />Professional Experience</td>
 							</tr>
 						</table>
 					</div>
