@@ -1,17 +1,3 @@
-function getURLParam(inparam)
-{
-  var url = window.location.search.substring(1);
-  var urlVars = url.split('&');
-  for (var i = 0; i < urlVars.length; ++i) 
-  {
-    var param = urlVars[i].split('=');
-    if (param[0] === inparam) 
-    {
-      return param[1];
-    }
-  }
-}
-
 function displayStudy(jsonObj)
 {
   // Should only return one study per ID, but just to make sure

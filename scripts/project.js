@@ -10,6 +10,23 @@ var searchRowTemplate = "";
 var searchDetailedTemplate = ""; 
 
 
+// Helper functions
+
+// Get parameters from URL
+function getURLParam(inparam)
+{
+  var url = window.location.search.substring(1);
+  var urlVars = url.split('&');
+  for (var i = 0; i < urlVars.length; ++i) 
+  {
+    var param = urlVars[i].split('=');
+    if (param[0] === inparam) 
+    {
+      return param[1];
+    }
+  }
+}
+
 /*
     closeit(id)
     Input: HTML object id
