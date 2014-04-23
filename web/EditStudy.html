@@ -4,7 +4,11 @@
 	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
 	<script src="../scripts/jquery-2.1.0.js"></script>
 	<script src="../scripts/popups-jquery.js"></script>
+<<<<<<< HEAD
         <script src="../scripts/editStudy.js"></script>
+=======
+	<script src="../scripts/submitJSON.js"></script>
+>>>>>>> fa93d0c063052efe56d7a3c181711afe9ee483a2
 </head>
 <body>
 	<header id="little_header">
@@ -27,8 +31,20 @@
 					<input type="date" name="end_date" id="end_date_input"/>
 				</div>
 				<p id="session_info">
+<<<<<<< HEAD
 					<label for="session_length_input">Session Length(minutes):</label> 
 					<input type="number" name="session_length" id="session_length_input" />
+=======
+					<label for="session_length_input">Session Length:</label> 
+					<select name="session_length" id="session_length_input">
+						<option value="&lt;30 mins">&lt;30 mins</option>
+						<option value="30-45 mins">30-45 mins</option>
+						<option value="45-60 mins">45-60 mins</option>
+						<option value="60-75 mins">60-75 mins</option>
+						<option value="75-90 mins">75-90 mins</option>
+						<option value="&gt;90 mins">&gt;90 mins</option>
+					</select>
+>>>>>>> fa93d0c063052efe56d7a3c181711afe9ee483a2
 				</p>
 				<p class = "hidden" id="alert_length">
 					Please specify session length in description.
@@ -42,7 +58,7 @@
 				<p id="calendar_private">
 					<label for="private_cal">Private Calendar ID:</label>
 					<br>
-					<input type="URL" name="private_cal"id="private_cal" />
+					<input type="URL" name="private_cal" id="private_cal" />
 				</p>
 			</div>
 			<div id="irb">
@@ -85,7 +101,11 @@
 				</p>
 			</div>
 			<div id="submit">
+<<<<<<< HEAD
 				<button id="studySubmit">Submit</button
+=======
+				<button id="submit_form">Submit</button>
+>>>>>>> fa93d0c063052efe56d7a3c181711afe9ee483a2
 			</div>
 		</div>
 		<div id="right_side">
