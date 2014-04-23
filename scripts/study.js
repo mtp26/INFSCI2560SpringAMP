@@ -45,8 +45,7 @@ function displayStudy(jsonObj)
 
   // Eligibility parsing
   eligibility = jQuery.parseJSON(study.eligibility);
-  $(".eligibility").append(eligibility.Elig_Other);
-
+  $(".eligibility").html(eligibility.Elig_Other);
 }
 
 $(document).ready(function() {
