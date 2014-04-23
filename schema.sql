@@ -41,3 +41,11 @@ insert into KeywordMatch (studyId, keywordId) values (2, '2');
 insert into Participating values (1,2);
 insert into Participating values (2,2);
 insert into Participating values (3,2);
+
+insert into Researcher (firstName, lastName, password, email, phoneNumber) values ('Student', 'Robotics Club', '', 'robot-club@myemail.com', '892-3892');
+insert into Study (title, length, compensationAmount, compensationType, eligibility, description, startDate, endDate, ibr, ownerId, calPub, calPriv) values ('Robo-Battle', 75, 0, 'None', '{\"Elig_Age\":\"0\", \"Elig_Gen\":\"0\", \"Elig_Lang\":\"0\", \"Elig_Vision\":\"0\", \"Elig_Edu\":\"0\", \"Elig_Exp\":\"0\", \"Elig_Exp_Type\":\"\", \"Elig_Cit\":\"0\", \"Elig_Other\":\"\"}', 'Battle robots against a random opponent, while we study the robot behavior.', '2014-5-1', '2014-8-1', '2', 5, 'http://www.google.com', 'http://www.google.com');
+insert into Keywords (keyword) values ('robots');
+insert into KeywordMatch (studyId, keywordId) values (3, '3');
+insert into Participating values (1,3);
+insert into Participating values (2,3);
+insert into Participating values (3,3);
