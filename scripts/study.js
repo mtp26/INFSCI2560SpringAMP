@@ -34,6 +34,10 @@ function displayStudy(jsonObj)
   $(".researcherEmail").attr("href", "mailto:" + study.researcherEmail);
   $(".researcherEmail").html(study.researcherEmail);
   $(".researcherPhone").html(study.researcherPhone);
+
+  // Keyword parsing
+  var keywords = study.keywords.replace(":",", "); 
+  $("keywords").html(keywords);
 }
 
 $(document).ready(function() {
