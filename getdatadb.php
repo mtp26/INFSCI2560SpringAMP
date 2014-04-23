@@ -30,6 +30,11 @@
   $start = $_GET['start'];
   $end = $_GET['end'];
   $keyword = $_GET['keyword'];
+  $compType = $_GET['compType'];
+  $compMin = $_GET['compMin'];
+  $compMax = $_GET['compMax'];
+  $lenMin = $_GET['lenMin'];
+  $lenMax = $_GET['lenMax'];
   $id = $_GET['id'];
 
   // Check if time range query selected
@@ -42,6 +47,26 @@
   } else {
     // If not, return all studies that end after today
     $query = $query . ' endDate >= sysdate()';
+  }
+  
+  if($compMin) {
+    $query .= " and compensationAmount >= $compMin";
+  }
+
+  if($compMan) {
+    $query .= " and compensationAmount <= $compMax";
+  }
+
+  if($compType) {
+    $query .= " and compensationType = '$compType'";
+  }
+ 
+  if($lenMin) {
+    $query .= " and length >= $lenMin";
+  }
+
+  if($lenMax) {
+    $query .= " and length <= $lenMax";
   }
   
   // Perform secondary query on previous resultset to limit overhead of like
@@ -77,6 +102,8 @@
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
         $studies[$i]['researcherPhone'] = $row['phone'];
+        $studies[$i]['privCal'] = $row['privCal'];
+        $studies[$i]['pubCal'] = $row['pubCal'];
         $i++;
       }
       $jsonRes = json_encode($studies);
