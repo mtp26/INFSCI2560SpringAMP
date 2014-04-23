@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
 	<script src="../scripts/jquery-2.1.0.js"></script>
 	<script src="../scripts/popups-jquery.js"></script>
+	<script src="../scripts/submitJSON.js"></script>
 </head>
 <body>
 	<header id="little_header">
@@ -25,8 +26,6 @@
 					<input type="date" name="end_date" id="end_date_input"/>
 				</div>
 				<p id="session_info">
-					<label for="session_num_input">Number of Sessions:</label> 
-					<input type="number" name="session_num" id="session_num_input"/>
 					<label for="session_length_input">Session Length:</label> 
 					<select name="session_length" id="session_length_input">
 						<option value="&lt;30 mins">&lt;30 mins</option>
@@ -49,7 +48,7 @@
 				<p id="calendar_private">
 					<label for="private_cal">Private Calendar ID:</label>
 					<br>
-					<input type="URL" name="private_cal"id="private_cal" />
+					<input type="URL" name="private_cal" id="private_cal" />
 				</p>
 			</div>
 			<div id="irb">
@@ -92,7 +91,7 @@
 				</p>
 			</div>
 			<div id="submit">
-				<input type="submit" value="Submit" />
+				<button id="submit_form">Submit</button>
 			</div>
 		</div>
 		<div id="right_side">
