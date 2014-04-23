@@ -28,7 +28,10 @@ function displayStudy(jsonObj)
 
   $(".pubCal").attr("href", study.calPub);
 
-  $(".researcherEmail").attr("href", "email:" + study.researcherEmail);
+  $(".researcherFirstName").html(study.researcherFirstName);
+  $(".researcherLastName").html(study.researcherLastName);
+
+  $(".researcherEmail").attr("href", "mailto:" + study.researcherEmail);
   $(".researcherEmail").html(study.researcherEmail);
   $(".researcherPhone").html(study.researcherPhone);
 }
