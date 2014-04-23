@@ -67,39 +67,55 @@ function searchById(id, func) {
 function addSearchResult(study)
 {
   // Do a deep copy of the row templates
-  var resultRow = jQuery.extend(true, {}, searchRowTemplate);
-  var resultDetailed = jQuery.extend(true, {}, searchDetailedTemplate);
+  //var resultRow = jQuery.extend(true, {}, searchRowTemplate);
+  //var resultDetailed = jQuery.extend(true, {}, searchDetailedTemplate);
+  var resultRow = searchRowTemplate.clone(true);
+  var resultDetailed = searchDetailedTemplate.clone(true);
 
-  $(".length").html(study.studyLength);
-  $(".compensationAmount").html(study.compensationAmount);
-  $(".compensationType").html(study.compensationType);
-  resultRow.html($(".title").html(study.title));
-  $(".startDate").html(study.startDate);
-  $(".endDate").html(study.startDate);
-  $(".description").html(study.description);
+  $(".length", resultRow).html(study.studyLength);
+  $(".compensationAmount", resultRow).html(study.compensationAmount);
+  $(".compensationType", resultRow).html(study.compensationType);
+  $(".title", resultRow).html(study.title);
+  $(".startDate", resultRow).html(study.startDate);
+  $(".endDate", resultRow).html(study.startDate);
 
-  $(".pubCal").attr("href", study.calPub);
 
-  $(".researcherFirstName").html(study.researcherFirstName);
-  $(".researcherLastName").html(study.researcherLastName);
+  $(".length", resultDetailed).html(study.studyLength);
+  $(".compensationAmount", resultDetailed).html(study.compensationAmount);
+  $(".compensationType", resultDetailed).html(study.compensationType);
+  $(".title", resultDetailed).html(study.title);
+  $(".startDate", resultDetailed).html(study.startDate);
+  $(".endDate", resultDetailed).html(study.startDate);
 
-  $(".researcherEmail").attr("href", "mailto:" + study.researcherEmail);
-  $(".researcherEmail").html(study.researcherEmail);
-  $(".researcherPhone").html(study.researcherPhone);
+  $(".startDate", resultDetailed).html(study.startDate);
+  
+  $(".endDate", resultDetailed).html(study.startDate);
+  $(".description", resultDetailed).html(study.description);
+
+  $(".pubCal", resultDetailed).attr("href", study.calPub);
+
+  $(".researcherFirstName", resultDetailed).html(study.researcherFirstName);
+  $(".researcherLastName", resultDetailed).html(study.researcherLastName);
+
+  $(".researcherEmail", resultDetailed).attr("href", "mailto:" + study.researcherEmail);
+  $(".researcherEmail", resultDetailed).html(study.researcherEmail);
+  $(".researcherPhone", resultDetailed).html(study.researcherPhone);
 
   // Keyword parsing and display
   var keywordsStr = study.keywords.slice(0,-1);
   var keywords = study.keywords.split(":");
   $.each(keywords, function(ind, val) {
     var keyword = $('<a>').attr("href", "").append(val);
-    $(".keywords").append(keyword);
-    $(".keywords").append(" ");
+    $(".keywords", resultDetailed).append(keyword);
+    $(".keywords", resultDetailed).append(" ");
   });
 
   // Eligibility parsing
   eligibility = jQuery.parseJSON(study.eligibility);
-  $(".eligibility").html(eligibility.Elig_Other);
+  $(".eligibility", resultRow).html(eligibility.Elig_Other);
+  $(".eligibility", resultDetailed).html(eligibility.Elig_Other);
 
+  // Finally add the results to the table
   $("#searchResults").append(resultRow);
   $("#searchResults").append(resultDetailed);
 }
@@ -243,8 +259,8 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 $(document).ready(function(){
 
 // Save template and remove all search results and header
-searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone();
-searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone();
+searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone(true);
+searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone(true);
 $("#searchDetailedTemplate").remove();
 $("#searchRowTemplate").remove();
 
@@ -253,8 +269,8 @@ $("#searchHeader").hide();
 
 $("#searchHeader").show();
 
-$("#searchResults").append(searchRowTemplate);
-$("#searchResults").append(searchDetailedTemplate);
+//$("#searchResults").append(searchRowTemplate);
+//$("#searchResults").append(searchDetailedTemplate);
 
 // Hide/show study details
   var detailedResults = $(".box").parent('td').parent("tr").hide();
