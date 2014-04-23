@@ -35,9 +35,15 @@ function displayStudy(jsonObj)
   $(".researcherEmail").html(study.researcherEmail);
   $(".researcherPhone").html(study.researcherPhone);
 
-  // Keyword parsing
-  var keywords = study.keywords.replace(":",", "); 
-  $("keywords").html(keywords);
+  // Keyword parsing and display
+  var keywordsStr = study.keywords.slice(0,-1);
+  var keywords = study.keywords.split(":");
+  $.each(keywords, function(ind, val) {
+    var keyword = $('<a>').attr("href", "").append(val);
+    $(".keywords").append(keyword);
+    $(".keywords").append(" ");
+  });
+
 }
 
 $(document).ready(function() {
