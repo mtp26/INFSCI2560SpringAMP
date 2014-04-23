@@ -43,6 +43,10 @@ function displayStudy(jsonObj)
     $(".keywords").append(" ");
   });
 
+  // Eligibility parsing
+  eligibility = jQuery.parseJSON(study.eligibility);
+  $(".eligibility").append(eligibility.Elig_Other);
+
 }
 
 $(document).ready(function() {
