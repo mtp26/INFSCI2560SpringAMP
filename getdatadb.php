@@ -101,7 +101,7 @@
         $studies[$i]['researcherFirstName'] = $row['firstName'];
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
-        $studies[$i]['researcherPhone'] = $row['phone'];
+        $studies[$i]['researcherPhone'] = $row['phoneNumber'];
         $studies[$i]['calPriv'] = $row['calPriv'];
         $studies[$i]['calPub'] = $row['calPub'];
         $i++;
