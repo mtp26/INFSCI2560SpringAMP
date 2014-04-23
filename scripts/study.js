@@ -22,7 +22,7 @@ function displayStudy(jsonObj)
   $(".compensationType").html(study.compensationType);
   $(".title").html(study.title);
   $(".startDate").html(study.startDate);
-  $(".endDate").html(study.startDate);
+  $(".endDate").html(study.endDate);
   $(".description").html(study.description);
 
   $(".pubCal").attr("href", study.calPub);
@@ -38,7 +38,8 @@ function displayStudy(jsonObj)
   var keywordsStr = study.keywords.slice(0,-1);
   var keywords = study.keywords.split(":");
   $.each(keywords, function(ind, val) {
-    var keyword = $('<a>').attr("href", "").append(val);
+    var keyword = $('<span>').append(val);
+    // The keywords on this page will not be clickable 
     $(".keywords").append(keyword);
     $(".keywords").append(" ");
   });

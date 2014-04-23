@@ -57,6 +57,10 @@ ol li {
   white-space: nowrap;
 }
 
+p.studyviews {
+  text-align: right;
+}
+
 section.filter {
   position: fixed;
   top: 54px;

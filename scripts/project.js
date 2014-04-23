@@ -77,7 +77,7 @@ function addSearchResult(study)
   $(".compensationType", resultRow).html(study.compensationType);
   $(".title", resultRow).html(study.title);
   $(".startDate", resultRow).html(study.startDate);
-  $(".endDate", resultRow).html(study.startDate);
+  $(".endDate", resultRow).html(study.endDate);
 
 
   $(".length", resultDetailed).html(study.studyLength);
@@ -106,8 +106,24 @@ function addSearchResult(study)
   var keywords = study.keywords.split(":");
   $.each(keywords, function(ind, val) {
     var keyword = $('<a>').attr("href", "").append(val);
+    keyword.addClass("keyword");
+    keyword.click( function(event) { 
+      event.preventDefault();
+      search(val);
+    });
+    
     $(".keywords", resultDetailed).append(keyword);
     $(".keywords", resultDetailed).append(" ");
+  });
+
+  // Subscription link
+  $(".subscribe", resultDetailed).attr("href", "study.html?studyId=" + study.studyId);
+
+  // Detailed view (expanded) link
+  $(".detailedview", resultDetailed).click(function() {
+      $(this).attr("href", "study.html?studyId=" + study.studyId);
+      $(this).attr("target", "_blank");
+      window.open("study.html?studyId=" + study.studyId, study.title, "width=800, height=600");
   });
 
   // Eligibility parsing
@@ -118,32 +134,51 @@ function addSearchResult(study)
   // Finally add the results to the table
   $("#searchResults").append(resultRow);
   $("#searchResults").append(resultDetailed);
+
+
+  // Hide/show study details
+  var detailedResults = $(".box").parent('td').parent("tr").hide();
+  $("a.title").click(function(event) {
+    event.preventDefault();
+    detailedResults.hide();
+    $(this).parent('td').parent('tr').next().show();
+  }); 
 }
 
 // Remove all results from the search table
 function clearSearchResults()
 {
+  // Remove all results
+  $("#searchHeader").hide();
   $("#searchResults").find("tr:gt(0)").remove();
+
+  // Show that there are no results
+  $("#noresults").show();
 }
 
 /*
     search()
     Input: Current none
-    Output: None
+    Output: Keyword 
     Gets study data from storage and adds to the document
 */
 
-function search() {
+function search(keywordin) {
    
    var jsonObj;
    var url = "getdatadb.php?type=studies";
   
-   var keyword = (filter)?"":($("#wordSearch").val());
-   filter = false;
-
-   if(keyword != "") {
-     url += "&keyword=" + keyword;
+   if (arguments.length == 0)
+   {
+     var keyword = (filter)?"":($("#wordSearch").val());
+     filter = false;
+     if(keyword != "") {
+      url += "&keyword=" + keyword;
+     }
+   } else {
+      url += "&keyword=" + keywordin;
    }
+
    if(startDateFilter != "") {
      url += "&start=" + start;
    }
@@ -168,15 +203,19 @@ function search() {
       var res = req.responseText;
       jsonObj = JSON.parse(res);
       clearSearchResults();
-      jsonObj.studies.forEach(function(data) {
-      //console.log(data.eligibility);
-      //var o2 = JSON.parse(data.eligibility);
-      //alert(o2.r1);
-      //alert(o2.r2);
-      //addNewStudyTable($("#studies div").length, 
-      //  data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
-      addSearchResult(data);
-      });
+
+      if (jsonObj.studies.length == null)
+      {
+          alert(jsonObj.studies.length);
+          $("#searchHeader").hide();
+          $("#noresults").show();
+      } else {
+          jsonObj.studies.forEach(function(data) {
+            $("#searchHeader").show();
+            $("#noresults").hide();
+            addSearchResult(data);
+          });
+      }
    });
 }
  
@@ -270,22 +309,11 @@ searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone(true);
 searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone(true);
 $("#searchDetailedTemplate").remove();
 $("#searchRowTemplate").remove();
+$("#noresults").hide();
 
-$("#searchResults").find("tr:gt(0)").remove();
-$("#searchHeader").hide();
-
-$("#searchHeader").show();
-
-//$("#searchResults").append(searchRowTemplate);
-//$("#searchResults").append(searchDetailedTemplate);
-
-// Hide/show study details
-  var detailedResults = $(".box").parent('td').parent("tr").hide();
-  $("a").click(function(event) {
-    event.preventDefault();
-    detailedResults.hide();
-    $(this).parent('td').parent('tr').next().show();
-  }); 
+// Show all studies by default
+clearSearchResults();
+search();
 
 // Apply filter
   $("#filterButton").click(function() {
