@@ -117,7 +117,7 @@ function addSearchResult(study)
   });
 
   // Subscription link
-  $(".subscribe", resultDetailed).attr("href", "study.html?studyId=" + study.studyId);
+  $(".subscribe", resultDetailed).attr("href", "rss.php?studyId=" + study.studyId);
 
   // Detailed view (expanded) link
   $(".detailedview", resultDetailed).click(function() {
