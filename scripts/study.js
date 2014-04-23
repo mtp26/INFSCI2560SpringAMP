@@ -12,23 +12,19 @@ function getURLParam(inparam)
   }
 }
 
-//var studyTitle = document.getElementById("title");
-//testp.innerHTML = getURLParam("test2");
-//testp.innerHTML = window.location.search.substring(1);
-
 function displayStudy(jsonObj)
 {
-  $.each(jsonObj.studies, function(i, item)
-  {
-    // Need to calculate hours here
-    $(".length").html(item.length);
-    $(".compensationAmount").html(item.compensationAmount);
-    $(".compensationType").html(item.compensationType);
-    $(".title").html(item.title);
-    $(".startDate").html(item.startDate);
-    $(".endDate").html(item.startDate);
-    $(".description").html(item.description);
-  });
+  // Should only return one study per ID, but just to make sure
+  study = jsonObj.studies[0];
+
+  // Need to calculate hours here
+  $(".length").html(study.length);
+  $(".compensationAmount").html(study.compensationAmount);
+  $(".compensationType").html(study.compensationType);
+  $(".title").html(study.title);
+  $(".startDate").html(study.startDate);
+  $(".endDate").html(study.startDate);
+  $(".description").html(study.description);
 }
 
 $(document).ready(function() {
