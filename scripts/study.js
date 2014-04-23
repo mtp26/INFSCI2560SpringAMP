@@ -15,7 +15,7 @@ function getURLParam(inparam)
 function displayStudy(jsonObj)
 {
   // Should only return one study per ID, but just to make sure
-  study = jsonObj.studies[0];
+  var study = jsonObj.studies[0];
 
   // Need to calculate hours here
   $(".length").html(study.length);
