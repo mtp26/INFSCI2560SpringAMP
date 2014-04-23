@@ -167,6 +167,7 @@ function search() {
    get(url, function(req) {
       var res = req.responseText;
       jsonObj = JSON.parse(res);
+      clearSearchResults();
       jsonObj.studies.forEach(function(data) {
       //console.log(data.eligibility);
       //var o2 = JSON.parse(data.eligibility);
@@ -174,7 +175,6 @@ function search() {
       //alert(o2.r2);
       //addNewStudyTable($("#studies div").length, 
       //  data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
-      clearSearchResults();
       addSearchResult(data);
       });
    });
