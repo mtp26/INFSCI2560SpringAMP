@@ -1,7 +1,12 @@
+var lengthFilter = "";
+var compAmtFilter = "";
+var compTypeFilter = "";
+var startDateFilter = "";
+var endDateFilter = "";
+var filter = false;
+
 $(document).ready(function() {
-  //$("#filterButton").click(function() {
-  //  search();
-  //});
+  
 
 });
 
@@ -70,19 +75,32 @@ function search() {
    var jsonObj;
    var url = "getdatadb.php?type=studies";
   
-  var keyword = $("#wordSearch").val();
-   var start = $("#startDate").val();
-   var end = $("#endDate").val();
+   var keyword = (filter)?"":($("#wordSearch").val());
+   filter = false;
+
    if(keyword != "") {
      url += "&keyword=" + keyword;
    }
-   if(start != "") {
+   if(startDateFilter != "") {
      url += "&start=" + start;
    }
-   if(end != "") {
+   if(endDateFilter != "") {
      url += "&end=" + end;
    }
-   
+  
+   if(lengthFilter != "") {
+     var len = lengthFilter.split(":");
+     url += "&lenMin=" + len[0] + "&lenMax=" + len[1];
+   }
+
+   if(compAmtFilter != "") {
+     var comps = compAmtFilter.split(":");
+     url += "&compMin=" + comps[0] + "&compMax=" + comps[1];
+   }
+
+   if(compTypeFilter != "") {
+     url += "&compType=" + compTypeFilter;
+   }
    get(url, function(req) {
       var res = req.responseText;
       jsonObj = JSON.parse(res);
@@ -92,7 +110,7 @@ function search() {
       //alert(o2.r1);
       //alert(o2.r2);
       addNewStudyTable($("#studies div").length, 
-        data.title, data.length, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
+        data.title, data.studyLength, data.compensationAmount + " " + data.compensationType, data.eligibility, data.description, data.startDate, data.endDate);
       });
    });
 }
@@ -186,4 +204,14 @@ $(document).ready(function(){
     detailedResults.hide();
     $(this).parent('td').parent('tr').next().show();
   }); 
+
+  $("#filterButton").click(function() {
+    lengthFilter = $("#explength").val();
+    compAmtFilter = $("#compensationAmount").val();
+    compTypeFilter = $("#compensationType").val();
+    startDateFilter = $("#startDate").val();
+    endDateFilter = $("#startDate").val();
+    filter = true;
+    search();
+  });
 });

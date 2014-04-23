@@ -53,7 +53,7 @@
     $query .= " and compensationAmount >= $compMin";
   }
 
-  if($compMan) {
+  if($compMax) {
     $query .= " and compensationAmount <= $compMax";
   }
 
