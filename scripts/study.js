@@ -18,7 +18,7 @@ function getURLParam(inparam)
 
 function displayStudy(jsonObj)
 {
-  $.each(jsonObj, function(i, item)
+  $.each(jsonObj[1], function(i, item)
   {
     // Need to calculate hours here
     $(".length").html(item.length);
