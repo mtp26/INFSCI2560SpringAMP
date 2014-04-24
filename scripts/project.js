@@ -299,6 +299,9 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 // Start JQuery
 $(document).ready(function(){
 
+// Hide subscribe to search link
+$("#subscribeToSearch").hide();
+
 // Save template and remove all search results and header
 searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone(true);
 searchDetailedTemplate = $("#searchDetailedTemplate").removeAttr("id").clone(true);
