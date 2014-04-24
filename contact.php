@@ -42,7 +42,7 @@
 
   // Check to see if a participant is already participating in a study
   function checkParticipating($con, $partId, $studyId) {
-    $result = runQuery($con, "select participantId from Participating where studyId =" . $studyId);
+    $result = runQuery($con, "select participantId from Participating where studyId =" . $studyId . " and participantId =" .$partId.";");
     
     if ($result == false)
     {
