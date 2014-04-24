@@ -124,6 +124,6 @@ function displayStudy(jsonObj)
     val = val.split(" ");
     $.each(val, function(v) {
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
-    }
-  }
+    });
+  });
 }
