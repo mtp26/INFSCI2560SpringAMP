@@ -44,8 +44,7 @@
   $pw = "d6q7pY";
   $db = "inf2560_g1";  
     $returnVal = "";
-//    $query = "select s.studyId, s.title, s.length, s.compensationAmount, s.compensationType, s.eligibility, s.description, s.startDate, s.endDate, s.IBR, s.ownerId, count(p.participantId) as numParticipating from Participant p, Participating q, Study s where p.participantId = q.participantId and s.studyId = q.studyId and s.ownerId = '$id' group by s.studyId";
-    $query = "select s.studyId, s.title, s.length, s.compensationAmount, s.compensationType, s.eligibility, s.description, s.startDate, s.endDate, s.IBR, s.ownerId, ifnull(p.cnt,0) as numParticipating from Study s  left join (select studyId, count(*) as cnt from Participating group by studyId) as p on s.studyId = p.studyId and s.ownerId='$id'";
+    $query = "select * from Study where ownerId='$id'";
     $con = new mysqli($hs, $un, $pw, $db);
     if($con->connect_errno > 0) {
       echo 'Cannot connect to database ['.$con->connect_error.']';
@@ -66,7 +65,7 @@
           $studies[$i]['startDate'] = $row['startDate'];
           $studies[$i]['endDate'] = $row['endDate'];
           $studies[$i]['IBR'] = $row['ibr'];
-          $studies[$i]['numParticipating'] = $row['numParticipating'];
+          $studies[$i]['numParticipating'] = getNumParticipants($con, $row['studyId']);
           $studies[$i]['keywords'] = getKeywords($con, $row['studyId']);
           $i++;
         }
@@ -76,6 +75,14 @@
     }
     return $returnVal;
   }
+
+function getNumParticipants($con, $studyId) {
+  $query = "select participantId from Participating where studyId = '$studyId'";
+  if($res = $con->query($query)) {
+    return $res->row_count();
+  }
+  return 0;
+}
 
 function getKeywords($con, $id) {
   $keywords = "";
