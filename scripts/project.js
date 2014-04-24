@@ -106,19 +106,10 @@ function addSearchResult(study)
   $(".subscribe", resultDetailed).attr("href", "rss.php?studyId=" + study.studyId);
 
   // Detailed view (expanded) link
-  $(".detailedview", resultDetailed).click(function(event) {
-      event.preventDefault();
+  $(".detailedview", resultDetailed).click(function() {
       $(this).attr("href", "study.html?studyId=" + study.studyId);
       $(this).attr("target", "_blank");
       window.open("study.html?studyId=" + study.studyId, study.title, "width=800, height=600");
-  });
-
-  // Contact the researcher link
-  $(".contact-link", resultDetailed).click(function(event) {
-      event.preventDefault();
-      $(this).attr("href", "contact.html?studyId=" + study.studyId);
-      $(this).attr("target", "_blank");
-      window.open("contact.html?studyId=" + study.studyId, study.title, "width=800, height=600");
   });
 
   // Eligibility parsing
@@ -175,10 +166,10 @@ function search(keywordin) {
    }
 
    if(startDateFilter != "") {
-     url += "&start=" + start;
+     url += "&start=" + startDateFilter;
    }
    if(endDateFilter != "") {
-     url += "&end=" + end;
+     url += "&end=" + endDateFilter;
    }
   
    if(lengthFilter != "") {
@@ -298,9 +289,6 @@ function addNewStudyTable(id, title, length, compensation, eligibility, descript
 
 // Start JQuery
 $(document).ready(function(){
-
-// Hide subscribe to search link
-$("#subscribeToSearch").hide();
 
 // Save template and remove all search results and header
 searchRowTemplate = $("#searchRowTemplate").removeAttr("id").clone(true);
