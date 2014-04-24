@@ -30,21 +30,40 @@
     }
   }
 
+  // Get POST values
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $message = $_POST['message'];
+  $studyId =  $_POST['studyid'];
+  $studyTitle =  $_POST['studytitle'];
+  $emailFrom  = $_POST['email'];
+  $interested = $_POST['interested'];
+  $emailTo = $_POST['researcheremail'];
+
+  echo $emailTo;
+
+  // Add contact information to message
+  $message."\n\nFrom: ".$emailFrom."\n";
+
+  // Set preformatted email subject so that the researcher can easily filter messages
+  $subject = $studyId.": ".$studyTitle." -- From: ".$emailFrom;
+
   
-  if (checkParticipant($con, 'test.com', 1))
+  if ($interested == 1)
   {
-    // Participant exists already for this study, do nothing
-    echo "Participant exists!";
-  } else {
-    // Participant does not exist, insert contact information into database
-    echo "Participant does not exist";
+    $message = $message."\n\nInterested in participating\n";
+
+    if (checkParticipant($con, $emailFrom, 1))
+    {
+      // Participant exists already for this study, do nothing
+      echo "Participant exists!";
+    } else {
+      // Participant does not exist, insert contact information into database
+      echo "Participant does not exist";
+    }
   }
 
-  $toAddress = "maxblaze@gmail.com";
-  $subject = "test";
-  $message = "Message";
-
   // Send mail
-  // mail($toAddress, $subject, $message);
+  //mail($emailTo, $subject, $message);
   //echo "Thank you for contacting us!";
 ?>
