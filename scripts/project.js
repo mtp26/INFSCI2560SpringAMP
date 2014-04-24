@@ -5,6 +5,8 @@ var startDateFilter = "";
 var endDateFilter = "";
 var filter = false;
 
+var keywordStore = "";
+
 // Template variables for search results
 var searchRowTemplate = "";
 var searchDetailedTemplate = ""; 
