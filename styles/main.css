@@ -261,3 +261,16 @@ span.login {
 .errorText {
   color:red;
 }
+
+#indexMain {
+	text-align:center;
+}
+
+#indexInfo {
+	padding: 20px 100px 20px 100px;
+}
+
+#validation {
+	position:fixed;
+	bottom:10px;
+}
