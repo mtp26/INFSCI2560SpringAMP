@@ -123,7 +123,7 @@ function get(url, fn) {
 
 function searchById(id, func) {
    var jsonObj;
-   var url = "getdatadb.php?type=studies&id="+id;
+   var url = "../getdatadb.php?type=studies&id="+id;
    get(url, function(req) {
       var res = req.responseText;
       jsonObj = JSON.parse(res);
