@@ -5,10 +5,10 @@ $hs = "mysql.rosta-farzan.net";
 $un = "grp1";
 $pw = "d6q7pY";
 $db = "inf2560_g1";  
+$input = "2";
 
 $con = new mysqli($hs, $un, $pw, $db);
-$query = "select * from Study,Research where studyID = $input";
-
+$query = "SELECT * FROM Study,Researcher WHERE Study.ownerId = Researcher.researcherId and studyId = $input";
 
 echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
       <rss version="2.0"
@@ -28,19 +28,22 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
 				<sy:updatePeriod>daily</sy:updatePeriod>
 				<sy:updateFrequency>1</sy:updateFrequency>
 				<!-- Need to update this link -->
-				<atom:link href="http://st25606.dreamhosters.com/Lecture10/Practice_10.2.xml" rel="self" type="application/rss+xml" />';
+				<atom:link href="http://st25606.dreamhosters.com/test/rssAtom.xml" rel="alternate" type="application/rss+xml" />';
 				
 				if ($res = $con->query($query)) {
-					while($rssFeed = mysql_fetch_array($getFeed)) {
+					while ($row = $res->fetch_assoc()){ 	
+					$modFormat = 'Y-m-d H:i:s';
+					$modDate = DateTime::createFromFormat($modFormat, $row['modTime']);
+					$date = date_format($modDate, DATE_RSS);
     					 echo '<item>',
-				              '<title>', $rssFeed['title'], '</title>',
-				              '<description>', $rssFeed['description'], '</description>',
-							  '<modTime>', $rssFeed['modTime'], '<modTime>',
-				              '<startDate>', $rssFeed['startDate'], '</startDate>',
-							  '<endDate>', $rssFeed['endDate'], '</endDate>',
-							  '<keywords>', $rssFeed['keywords'], '</keywords>',
-							  '</item>';
-					}
+						 //'<guid>', URL, '</guid>',
+						 '<title>', $row['title'], '</title>',
+						 '<link>http://www.google.com/</link>',
+				         '<description>', $row['description'], '</description>',
+						 '<pubDate>', $date, '</pubDate>',
+						 '</item>';
+						  }
+					
 				}
 			echo '</channel>
     </rss>';
