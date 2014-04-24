@@ -2,7 +2,11 @@ $(document).ready(function() {
 	// Subscription Button
 	// Contact - Phone
 	// Contact - Email
-	// Alert - Session Length Clarification
+
+	// Calendar Help
+	$('#help_toggle').click(function(){
+		$('#cal_help').toggle();
+	});
 	
 	// Eligibility Restrictions
 	
