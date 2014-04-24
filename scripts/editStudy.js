@@ -141,6 +141,7 @@ function displayStudy(jsonObj)
     alert("Key: " + key + " Values: " + val);
     val = val.split(" ");
     $.each(val, function(v) {
+      alert("Jquery: " + "input[name="+key+"][value="+v+"]");
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
     });
   });
