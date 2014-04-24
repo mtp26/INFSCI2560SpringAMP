@@ -177,15 +177,12 @@ img {
   margin-right: 10px;
 }
 
+.help_toggle {
+	border: none;
+	float: none;
+	margin-left: 5px;
+}
+
 #cal1, #cal2 {
 	float: none;
-}
-
-.help_toggle {
-	font-weight:bold;
-}
-
-.help_toggle:hover {
-	background:#111150;
-	color:#f4f4d6;
 }
