@@ -1,0 +1,32 @@
+University of Pittsburgh Experiment Exchange
+
+Help File
+
+
+For Participants:
+	
+	From the main page, click View Studies. This will take you to a list of all current studies.
+	From the interface, you are able to search by keyword, title, or description, as well as 
+	filtering searches by experiment length, compensation, and timeframe. 
+	
+	You may view more information for a specific study by clicking on that study in the list. 
+	If you wish to view the complete information for the study, click Expand to open a window 
+	with all data provided for that study. To subscribe to a study, please click the RSS icon 
+	and subscribe using your preferred RSS reader.
+	
+	There is no need to log in. Your information will only be collected when you wish to contact 
+	a researcher. If you contact a researcher, the information you provide will be saved for the 
+	researcher's records.
+
+
+For Researchers:
+	
+	** To request an account, please email administrator@pittexp.com **
+	
+	After log in, you will be directed to your home page. Here you will find a list of all 
+	studies you have submitted to Experiment Exchange. From this list, you can edit studies 
+	or add a new study. The resulting pop up allows you to edit every field, and your changes 
+	will be applied automatically on submit. 
+	
+	
+

@@ -181,4 +181,11 @@ img {
 	float: none;
 }
 
+.help_toggle {
+	font-weight:bold;
+}
 
+.help_toggle:hover {
+	background:#111150;
+	color:#f4f4d6;
+}

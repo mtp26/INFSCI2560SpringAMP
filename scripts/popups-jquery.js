@@ -36,7 +36,7 @@ $(document).ready(function() {
 //	});
 	
 	// Calendar Help
-	$('#help_toggle').click(function(){
+	$('.help_toggle').click(function(){
 		$('#cal_help').toggle();
 	});
 	
