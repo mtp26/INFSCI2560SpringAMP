@@ -1,7 +1,0 @@
-Researcher
--add calendar links -- private
--Interested Participants
--Removed Subscribed
--Timeframe -> link to public calendar
-
-Participant
