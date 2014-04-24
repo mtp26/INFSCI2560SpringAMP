@@ -71,7 +71,7 @@
   
   // Perform secondary query on previous resultset to limit overhead of like
   if($keyword) {
-    $query = "select * from ($query) q where q.description like '%$keyword%' or q.title like '%$keyword%' or q.studyId in (select studyId from KeywordMatch where keyword = '$keyword')";
+    $query = "select * from ($query) q where q.description like '%$keyword%' or q.title like '%$keyword%' or q.studyId in (select studyId from KeywordMatch, Keyword where KeywordMatch.keywordId = Keyword.keywordId and keyword = '$keyword'))";
   }
   if($id) {
     $query = "select * from Study, Researcher where studyId = '$id' and Study.ownerId = Researcher.researcherId";
