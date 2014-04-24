@@ -5,7 +5,7 @@ $hs = "mysql.rosta-farzan.net";
 $un = "grp1";
 $pw = "d6q7pY";
 $db = "inf2560_g1";  
-$input = "2";
+$input = $_GET['studyId'];
 
 $con = new mysqli($hs, $un, $pw, $db);
 $query = "SELECT * FROM Study,Researcher WHERE Study.ownerId = Researcher.researcherId and studyId = $input";
