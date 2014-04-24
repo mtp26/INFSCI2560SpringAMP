@@ -6,7 +6,7 @@ $pw = "d6q7pY";
 $db = "inf2560_g1";  
 
 $con = new mysqli($hs, $un, $pw, $db);
-$getFeed = mysql_query("select * from Study,Research where studyID = $input")or die(mysql_error());
+$query = "select * from Study,Research where studyID = $input";
 
 echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
       <rss version="2.0"
@@ -30,6 +30,7 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
 				<!-- needs to be edited -->
 				<atom:link href="http://st25606.dreamhosters.com/Lecture10/Practice_10.2.xml" rel="self" type="application/rss+xml" />';
 				
+				if ($res = $con->query($query)) {
 					while($rssFeed = mysql_fetch_array($getFeed)) {
     					 echo '<item>',
 				              '<title>', $rssFeed['title'], '</title>',
@@ -39,6 +40,7 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
 							  '<keywords>', $rssFeed['keywords'], '</keywords>',
 							  '</item>';
 					}
+				}
 			echo '</channel>
     </rss>';
 
