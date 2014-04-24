@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  searchById(getURLParam("id"), displayStudy);
+  
   $("#studySubmit").click(function() {
    // var id = $("input#studyId").val();
     var title = $("input#title_input").val();
@@ -11,7 +13,7 @@ $(document).ready(function() {
     var payType = $("input#pay_type").val();
     var payAmt = $("input#pay_value_input").val();
     var keywords = $("input#keywords_input").val();
-    alert(keywords);
+
     var desc = $("input#description_input").val();
     var age_elig = "\"age_elig\":\"" + $("input[name=age_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
@@ -36,6 +38,21 @@ $(document).ready(function() {
    // alert(id);
   });
 });
+
+// Get parameters from URL
+function getURLParam(inparam)
+{
+  var url = window.location.search.substring(1);
+  var urlVars = url.split('&');
+  for (var i = 0; i < urlVars.length; ++i) 
+  {
+    var param = urlVars[i].split('=');
+    if (param[0] === inparam) 
+    {
+      return param[1];
+    }
+  }
+}
 
 /*
     addStudyTest
@@ -86,4 +103,27 @@ function post(url, params, fn) {
     }
   }
   req.send(params);
+}
+
+function searchById(id, func) {
+   var jsonObj;
+   var url = "getdatadb.php?type=studies&id="+id;
+   get(url, function(req) {
+      var res = req.responseText;
+      jsonObj = JSON.parse(res);
+      func(jsonObj);
+   });
+}
+
+function displayStudy(jsonObj)
+{
+  // Should only return one study per ID, but just to make sure
+  var study = jsonObj.studies[0];
+  var elig = JSON.parse(study.eligibility);
+  $.each(keywords, function(key, val) {
+    val = val.split(" ");
+    $.each(val, function(v) {
+      $("input[name="+key+"][value="+v+"]").attr("checked",true);
+    }
+  }
 }
