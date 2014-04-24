@@ -32,12 +32,12 @@ echo '<?xml version="1.0" encoding="ISO-8859-1" ?>
 				
 					while($rssFeed = mysql_fetch_array($getFeed)) {
     					 echo '<item>',
-				              '<title>', $rssFeed['title']'</title>',
+				              '<title>', $rssFeed['title'], '</title>',
 				              '<description>', $rssFeed['description'], '</description>',
 				              '<startDate>', $rssFeed['startDate'], '</startDate>',
 							  '<endDate>', $rssFeed['endDate'], '</endDate>',
-							  '<keywords>', $rssFeed['keywords'], '</keywords>'
-							   </item>';
+							  '<keywords>', $rssFeed['keywords'], '</keywords>',
+							  '</item>';
 					}
 			echo '</channel>
     </rss>';
