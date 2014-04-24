@@ -28,5 +28,17 @@ For Researchers:
 	or add a new study. The resulting pop up allows you to edit every field, and your changes 
 	will be applied automatically on submit. 
 	
+	To incorporate Google Calendars, you need to first create the calendars at 
+	http://calendar.google.com. In order for participants to be able to view your calendar, 
+	you must make it public. This can be set when you create the calendar, or an existing 
+	private calendar can be made public. To update an existing calendar, select the calendar 
+	from the list of "My Calendars" in the Google Calendar interface. In the drop-down menu 
+	for the calendar you wish to edit, select "Share this Calendar." This menu allows you 
+	to set a calendar to public or private, as well as specifying what information will be shared.
 	
+	You may choose to enter the same calendar into both public and private fields if you set the 
+	calendar to share only free/busy information or if there is not sensitive data stored in the 
+	calendar. If you will be using Google Calendar to maintain a study schedule including 
+	identifying information, please be sure to make a public version of your calendar that 
+	the participants will be able to view.
 
