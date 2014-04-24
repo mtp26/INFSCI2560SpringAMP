@@ -42,7 +42,7 @@
 
   // Check to see if a participant is already participating in a study
   function checkParticipating($con, $partId, $studyId) {
-    $result = runQuery($con, "select participantId from Participating where studyId =" . $studyId . " and participantId =" .$partId.";");
+    $result = runQuery($con, "select participantId from Participating where studyId =" . $studyId . " and participantId =" .$partId);
     
     if ($result == false)
     {
@@ -71,8 +71,7 @@
   $emailFrom  = $_POST['email'];
   $interested = $_POST['interested'];
   $emailTo = $_POST['researcheremail'];
-
-  echo $emailTo;
+  $researcherFullName = $_POST['researchername'];
 
   // Add contact information to message
   $message = $message."\n\nFrom: ".$fname." ".$lname." <".$emailFrom.">\n";
@@ -88,24 +87,22 @@
     if ($partId = checkParticipant($con, $emailFrom))
     {
       // Participant exists already exists
-      echo "Participant exists!";
       if (checkParticipating($con, $partId, $studyId))
       {
         // Participant, study match exists
       } else {
-        echo "Participant does not exist in study!";
+        // Participant does not exist in study!
         addParticipating($con, $partId, $studyId);
       }
     } else {
       // Participant does not exist, insert contact information into database
-      echo "Participant does not exist";
       addParticipant($con, $emailFrom, $fname, $lname); 
       $partId = checkParticipant($con, $emailFrom);
       addParticipating($con, $partId, $studyId);
     }
   }
 
- // Send mail
- //mail($emailTo, $subject, $message);
- echo "Thank you for contacting us!";
+  // Send mail
+  //mail($emailTo, $subject, $message);
+  echo "Thank you for contacting ".$researcherFullName;
 ?>

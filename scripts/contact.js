@@ -10,7 +10,9 @@ function displayContact(jsonObj)
   $(".researcher").html(researcherFullName);
   $(".researcherLastName").html(study.researcherLastName);
 
+  // Populate hidden fields for researcher information
   $("#researcheremail").val(study.researcherEmail);
+  $("#researchername").val(researcherFullName);
 
   // Default text for the message
   var messageText = "Dear " + researcherFullName + ",\n\nPlease send me more information about " + study.title + ".";
