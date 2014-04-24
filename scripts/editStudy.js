@@ -126,6 +126,7 @@ function searchById(id, func) {
    var url = "../getdatadb.php?type=studies&id="+id;
    get(url, function(req) {
       var res = req.responseText;
+      alert(res);
       jsonObj = JSON.parse(res);
       func(jsonObj);
    });
