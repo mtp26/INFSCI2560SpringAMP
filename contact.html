@@ -16,7 +16,7 @@
   <p>
     <b>Contact <span class="researcher">Researcher Name</span></b>
   </p>
-
+<form action="contact.php" method="post" enctype="text/plain">
   Name: <input type="text" name="name" id="name" size="15" value="" placeholder="John Doe" required />
   <br />
   Email: <input type="email" name="email" id="email" size="15" value="" placeholder="me@something.com" required />
@@ -26,7 +26,8 @@
   </p>
   <textarea name="message" id="message" cols="70" rows="20" placeholder="Type your message here..." required></textarea>
   <br />
-  <input type="button" value="Send" id="send" />
+  <input type="Submit" value="Send" id="send" />
+</form>
 
 </body>
 </html>
