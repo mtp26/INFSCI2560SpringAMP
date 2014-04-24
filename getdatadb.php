@@ -71,7 +71,7 @@
   
   // Perform secondary query on previous resultset to limit overhead of like
   if($keyword) {
-    $query = 'select * from ('.$query.') q where q.description like \'%'.$keyword.'%\'';
+    $query = "select * from ($query) q where q.description like '%$keyword%' or q.title like '%$keyword%' or q.studyId in (select studyId from KeywordMatch where keyword = '$keyword')";
   }
   if($id) {
     $query = "select * from Study, Researcher where studyId = '$id' and Study.ownerId = Researcher.researcherId";
@@ -101,9 +101,9 @@
         $studies[$i]['researcherFirstName'] = $row['firstName'];
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
-        $studies[$i]['researcherPhone'] = $row['phoneNumber'];
-        $studies[$i]['calPriv'] = $row['calPriv'];
-        $studies[$i]['calPub'] = $row['calPub'];
+        $studies[$i]['researcherPhone'] = $row['phone'];
+        $studies[$i]['privCal'] = $row['privCal'];
+        $studies[$i]['pubCal'] = $row['pubCal'];
         $i++;
       }
       $jsonRes = json_encode($studies);
@@ -114,7 +114,7 @@
 
 function getKeywords($con, $id) {
   $keywords = "";
-  $query = "select k.keyword from Keywords k, KeywordMatch km where km.keywordId = k.keywordId and km.studyId='$id'";
+  $query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id'";
   if($res = $con->query($query)) {
     while($row = $res->fetch_assoc()) {
       $keywords .=$row['keyword'].":";
