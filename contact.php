@@ -103,4 +103,5 @@
   // Send mail
   mail($emailTo, $subject, $message);
   echo "Thank you for contacting ".$researcherFullName;
+  echo "<script>window.close();</script>";
 ?>
