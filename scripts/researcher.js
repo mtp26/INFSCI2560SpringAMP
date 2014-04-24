@@ -23,10 +23,9 @@ $(document).ready(function() {
       tdStudy.innerHTML = "<a href='web/EditStudy.html?id=" + data.studyId + "' onclick=\"return !window.open(this.href, 'Add/Edit Study', 'width=800,height=700')\" target='_blank'>" +data.title +"</a>";
       var tdTimeframe = document.createElement("td");
       tdTimeframe.innerHTML = data.startDate + "&mdash;" + data.endDate;
-      var tdSubscribed = document.createElement("td");
-      tdSubscribed.innerHTML = "<a href=\"web/UserList.html?id=" + data.studyId + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+data.numParticipating+"</a>";     
       var tdInterested = document.createElement("td");
-      tdInterested.innerHTML = "0";       
+      tdInterested.innerHTML = "<a href=\"web/UserList.html?id=" + data.studyId + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+data.numParticipating+"</a>";     
+
       newRow.appendChild(tdStudy);
       newRow.appendChild(tdTimeframe);
       newRow.appendChild(tdInterested);
