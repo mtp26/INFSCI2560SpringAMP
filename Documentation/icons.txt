@@ -6,3 +6,6 @@ Expand:
 https://www.iconfinder.com/icons/227589/expand_icon#size=128
 https://www.iconfinder.com/icons/227589/download/svg/128
 https://www.iconfinder.com/icons/227589/download/png/128
+
+Info:
+https://www.iconfinder.com/icons/42262/info_icon#size=48
