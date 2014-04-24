@@ -79,7 +79,7 @@
 function getNumParticipants($con, $studyId) {
   $query = "select participantId from Participating where studyId = '$studyId'";
   if($res = $con->query($query)) {
-    return $res->row_count();
+    return $res->num_rows();
   }
   return 0;
 }
