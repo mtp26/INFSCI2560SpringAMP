@@ -87,11 +87,9 @@
     if ($partId = checkParticipant($con, $emailFrom))
     {
       // Participant exists already exists
-      if (checkParticipating($con, $partId, $studyId))
+      if (!checkParticipating($con, $partId, $studyId))
       {
-        // Participant, study match exists
-      } else {
-        // Participant does not exist in study!
+        // Participant does not exist in study
         addParticipating($con, $partId, $studyId);
       }
     } else {
@@ -103,6 +101,6 @@
   }
 
   // Send mail
-  //mail($emailTo, $subject, $message);
+  mail($emailTo, $subject, $message);
   echo "Thank you for contacting ".$researcherFullName;
 ?>
