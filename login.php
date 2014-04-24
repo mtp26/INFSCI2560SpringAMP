@@ -77,12 +77,13 @@
   }
 
 function getNumParticipants($con, $studyId) {
+  $val = 0;
   $query = "select count(*) as c from Participating where studyId = '$studyId' group by studyId";
   if($res = $con->query($query)) {
     $row = $res->fetch_assoc();
-    return $row['c'];
+    $val = $row['c'];
   }
-  return 0;
+  return $val;
 }
 
 function getKeywords($con, $id) {
