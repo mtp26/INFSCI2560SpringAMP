@@ -1,18 +1,5 @@
 $(document).ready(function() {
 	
-	// Load Data 
-//	var title = jsonObj.title;
-//	var studyLen = jsonObj.length;
-//	var compVal = jsonObj.compensationAmount;
-//	var compType = jsonObj.compensationType;
-//	var desc = jsonObj.description;
-//	var startDate = jsonObj.startDate;
-//	var endDate = jsonObj.endDate;
-//	var irb = jsonObj.ibr;
-//	var rName = jsonObj.firstName + " " + jsonObj.lastName;
-//	var rEmail = jsonObj.email;
-//	var rPhone = jsonObj.phoneNumber;
-	
 	
 	// Set Eligibility
 	var age = $("input[name=age_elig]:checked").length;
@@ -24,12 +11,12 @@ $(document).ready(function() {
 	var cit = $("input[name=cit_elig]:checked").length;
 	
 	$("#age_count").html(age + " restrictions in age category" );
-	$("#gender_count").html(gender + " restrictions in age category" );
-	$("#lang_count").html(lang + " restrictions in age category" );
-	$("#vision_count").html(vision + " restrictions in age category" );
-	$("#edu_count").html(edu + " restrictions in age category" );
-	$("#exp_count").html(exp + " restrictions in age category" );
-	$("#cit_count").html(cit + " restrictions in age category" );
+	$("#gender_count").html(gender + " restrictions in gender category" );
+	$("#lang_count").html(lang + " restrictions in language category" );
+	$("#vision_count").html(vision + " restrictions in vision category" );
+	$("#edu_count").html(edu + " restrictions in education category" );
+	$("#exp_count").html(exp + " restrictions in experience category" );
+	$("#cit_count").html(cit + " restrictions in citizenship category" );
 	
 	// causes onclick events to fail??
 //	post("popupResearcher.php", "", function(req) {
@@ -71,31 +58,31 @@ $(document).ready(function() {
 	$('#lang_label').click(function() {
 		$('#lang_table').toggle();
 		lang = $("input[name=lang_elig]:checked").length;
-		$("#lang_count").html(lang + " restrictions in gender category" );
+		$("#lang_count").html(lang + " restrictions in language category" );
 	});
 	// Vision 
 	$('#vision_label').click(function() {
 		$('#vision_table').toggle();
 		vision = $("input[name=vision_elig]:checked").length;
-		$("#vision_count").html(vision + " restrictions in gender category" );
+		$("#vision_count").html(vision + " restrictions in vision category" );
 	});
 	// Education
 	$('#edu_label').click(function() {
 		$('#edu_table').toggle();
 		edu = $("input[name=education_elig]:checked").length;
-		$("#edu_count").html(edu + " restrictions in gender category" );
+		$("#edu_count").html(edu + " restrictions in education category" );
 	});
 	// Experience
 	$('#exp_label').click(function() {
 		$('#exp_table').toggle();
 		exp = $("input[name=experience_elig]:checked").length;
-		$("#exp_count").html(exp + " restrictions in gender category" );
+		$("#exp_count").html(exp + " restrictions in experience category" );
 	});
 	// Citizenship
 	$('#cit_label').click(function() {
 		$('#cit_table').toggle();
 		cit = $("input[name=cit_elig]:checked").length;
-		$("#cit_count").html(cit + " restrictions in gender category" );
+		$("#cit_count").html(cit + " restrictions in citizenship category" );
 	});
 	// Other
 	$('#other_label').click(function() {
