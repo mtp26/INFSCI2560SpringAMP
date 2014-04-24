@@ -136,7 +136,7 @@ function displayStudy(jsonObj)
   // Should only return one study per ID, but just to make sure
   var study = jsonObj.studies[0];
   var elig = JSON.parse(study.eligibility);
-  $.each(keywords, function(key, val) {
+  $.each(elig, function(key, val) {
     val = val.split(" ");
     $.each(val, function(v) {
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
