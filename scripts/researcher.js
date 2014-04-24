@@ -29,7 +29,6 @@ $(document).ready(function() {
       tdInterested.innerHTML = "0";       
       newRow.appendChild(tdStudy);
       newRow.appendChild(tdTimeframe);
-      newRow.appendChild(tdSubscribed);
       newRow.appendChild(tdInterested);
       $(".main-researcher>table")[0].appendChild(newRow);
    });
