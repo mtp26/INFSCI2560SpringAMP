@@ -114,7 +114,7 @@
 
 function getKeywords($con, $id) {
   $keywords = "";
-  $query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id'";
+  $query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id' and km.keywordId = k.keywordId";
   if($res = $con->query($query)) {
     while($row = $res->fetch_assoc()) {
       $keywords .=$row['keyword'].":";
