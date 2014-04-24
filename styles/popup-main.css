@@ -2,7 +2,7 @@
 body {
   color: #000000;
   background: #f4f4d6;
-  font-family: Garmond, serif;
+  font-family: Garamond, serif;
   font-size: 1em;
   margin-top: 75px;
   width:100%;
@@ -39,7 +39,7 @@ header {
   position: fixed;
   top: 54px;
   left: 5px;
-  width: 480px;
+  width: 500px;
   color: #000000;       
   font-size: 0.75em;
   background: #f4f4d6;
@@ -49,13 +49,6 @@ header {
 
 #left_side input[type="text"], input[type="URL"] {
 	width: 60%;
-}
-
-#alert_length, #alert_pay {
-	position: relative;
-	left: 25px;
-	color: #FF0000;
-	font-weight: bold;
 }
 
 #right_side {
@@ -184,5 +177,8 @@ img {
   margin-right: 10px;
 }
 
+#cal1, #cal2 {
+	float: none;
+}
 
 

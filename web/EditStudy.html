@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../styles/popup-main.css" />
 	<script src="../scripts/jquery-2.1.0.js"></script>
 	<script src="../scripts/popups-jquery.js"></script>
-        <script src="../scripts/editStudy.js"></script>
+	<script src="../scripts/editStudy.js"></script>
 </head>
 <body>
 	<header id="little_header">
@@ -14,7 +14,7 @@
 		<div id ="left_side">
 			<div id="title">
 				<p id="title_input">
-                                        <input type="hidden" name="id" id="studyId" value="" />
+					<input type="hidden" name="id" id="studyId" value="" />
 					<label for="title_input">Title:</label> 
 					<input type="text" name="title" id="title_input">
 				</p>
@@ -37,19 +37,23 @@
 						<option value="6">&gt;90 mins</option>
 					</select>
 				</p>
-				<p class = "hidden" id="alert_length">
-					Please specify session length in description.
-				</p>
-				<!-- Warning appears to discuss time in description if >90 mins -->
 				<p id="calendar_public">
-					<label for="public_cal">Public Calendar ID:</label>
+					<label for="public_cal">Public Calendar URL:</label>
 					<br>
 					<input type="URL" name="public_cal" id="public_cal" />
 				</p>
 				<p id="calendar_private">
-					<label for="private_cal">Private Calendar ID:</label>
+					<label for="private_cal">Private Calendar URL:</label>
 					<br>
 					<input type="URL" name="private_cal" id="private_cal" />
+				</p>
+				<p id="calendar_help">
+					<span class="changes" id="help_toggle">Click here for help finding the URL.</span>
+					<div class="hidden" id="cal_help">
+						<img src="../images/Cal1.png" id="cal1" alt="Click on calendar settings for the calendar you wish to share." height="94" width="225"> 
+						<br>
+						<img src="../images/Cal2.png" id="cal2" alt="Find calendar address." height="65" width="450">
+					</div>
 				</p>
 			</div>
 			<div id="irb">
@@ -73,16 +77,12 @@
 				<p id="pay_value">
 					<label for="pay_value_input">Payment Amount:</label> 
 					<input type="number" name="pay_value" id="pay_value_input"/>
-					<br>
-					<span class="hidden" id="alert_pay">
-						Value cannot be 0 for this payment type.
-					</span>
 				</p>
 			</div>
 			<div id="description">
 				<p id="keyword_input">
-					<label for="keywords_input">Keywords(comma-separated list):</label> 
-					<input type="text" name="keyword" id="keywords_input" />
+					<label for="keywords_input">Keywords:</label> 
+					<input type="text" name="keyword" id="keywords_input" placeholder="use, commas, please"/>
 				</p>
 				<p id="description_title">
 					<label for="description_input">Description:</label> 
@@ -92,7 +92,7 @@
 				</p>
 			</div>
 			<div id="submit">
-				<button id="studySubmit">Submit</button
+				<button id="studySubmit">Submit</button>
 			</div>
 		</div>
 		<div id="right_side">
@@ -126,7 +126,7 @@
 					<div class="changes" id="age_label">
 						<p>
 							<label for="age_elig">Age:</label> 
-							<span id="age_count">$number</span> restrictions in age category
+							<span id="age_count">0</span> restrictions in age category
 						</p>
 					</div>
 					<div class="hidden" id="age_table">
@@ -148,7 +148,7 @@
 					<div class="changes" id="gender_label">
 						<p>
 							<label for="gender_elig">Gender:</label>
-							<span id="gender_count">$number</span> restrictions in gender category
+							<span id="gender_count">0</span> restrictions in gender category
 						</p>
 					</div>
 					<div class="hidden" id="gender_table">
@@ -164,7 +164,7 @@
 					<div class="changes" id="lang_label">
 						<p>
 							<label for="lang_elig">Language:</label>
-							<span id="lang_count">$number</span> restrictions in language category
+							<span id="lang_count">0</span> restrictions in language category
 						</p>
 					</div>
 					<div class="hidden" id="lang_table">
@@ -184,7 +184,7 @@
 					<div class="changes" id="vision_label">
 						<p>
 							<label for="vision_elig">Vision:</label>
-							<span id="vision_count">$number</span> restrictions in vision category
+							<span id="vision_count">0</span> restrictions in vision category
 						</p>
 					</div>
 					<div class="hidden" id="vision_table">
@@ -205,7 +205,7 @@
 					<div class="changes" id="edu_label">
 						<p>
 							<label for="education_elig">Education:</label>
-							<span id="edu_count">$number</span> restrictions in education category
+							<span id="edu_count">0</span> restrictions in education category
 						</p>
 					</div>
 					<div class="hidden" id="edu_table">
@@ -227,7 +227,7 @@
 					<div class="changes" id="exp_label">
 						<p>
 							<label for="experience_elig">Experience:</label>
-							<span id="exp_count">$number</span> restrictions in experience category
+							<span id="exp_count">0</span> restrictions in experience category
 						</p>
 					</div>
 					<div class="hidden" id="exp_table">
@@ -253,7 +253,7 @@
 					<div class="changes" id="cit_label">
 						<p>
 							<label for="cit_elig">Citizenship:</label>
-							<span id="cit_count">$number</span> restrictions in citizenship category
+							<span id="cit_count">0</span> restrictions in citizenship category
 						</p>
 					</div>
 					<div class="hidden" id="cit_table">
