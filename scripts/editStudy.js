@@ -140,12 +140,13 @@ function displayStudy(jsonObj)
     $("input#start_date_input").val(study.startDate);
     $("input#end_date_input").val(study.endDate);
     $("input#session_length_input").val(study.length);
-    $("input#public_cal").val(study.pubCal);
-    $("input#private_cal").val(study.privCal);
-    $("input#irb_input").val(study.irb);
-    $("input#pay_type").val(study.compType);
-    $("input#pay_value_input").val(study.compAmt);
+    $("input#public_cal").val(study.calPub);
+    $("input#private_cal").val(study.calPriv);
+    $("input#irb_input").val(study.IBR);
+    $("input#pay_type").val(study.compensationType);
+    $("input#pay_value_input").val(study.compensationsAmt);
     $("input#keywords_input").val(study.keywords);
+    $("input#description").val(study.description);
 
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {
