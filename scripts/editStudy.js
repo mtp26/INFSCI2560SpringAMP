@@ -105,6 +105,22 @@ function post(url, params, fn) {
   req.send(params);
 }
 
+/*
+    get(url, fn)
+    Input: location of resource, callback function
+    **** Will be removed at some point, convert all to POST ****
+*/
+function get(url, fn) {
+  var req = new XMLHttpRequest();
+  req.open("GET", url, true);
+  req.onreadystatechange = function() {
+    if(req.readyState === 4 && req.status === 200) {
+      fn(req);
+    }
+  }
+  req.send(null);
+}
+
 function searchById(id, func) {
    var jsonObj;
    var url = "getdatadb.php?type=studies&id="+id;
