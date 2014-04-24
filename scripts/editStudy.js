@@ -136,16 +136,16 @@ function displayStudy(jsonObj)
   // Should only return one study per ID, but just to make sure
 
   var study = jsonObj.studies[0];
-  $("input#title_input").html(study.title);
-    $("input#start_date_input").html(study.startDate);
-    $("input#end_date_input").html(study.endDate);
-    $("input#session_length_input").html(study.length);
-    $("input#public_cal").html(study.pubCal);
-    $("input#private_cal").html(study.privCal);
-    $("input#irb_input").html(study.irb);
-    $("input#pay_type").html(study.compType);
-    $("input#pay_value_input").html(study.compAmt);
-    $("input#keywords_input").html(study.keywords);
+  $("input#title_input").val(study.title);
+    $("input#start_date_input").val(study.startDate);
+    $("input#end_date_input").val(study.endDate);
+    $("input#session_length_input").val(study.length);
+    $("input#public_cal").val(study.pubCal);
+    $("input#private_cal").val(study.privCal);
+    $("input#irb_input").val(study.irb);
+    $("input#pay_type").val(study.compType);
+    $("input#pay_value_input").val(study.compAmt);
+    $("input#keywords_input").val(study.keywords);
 
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {
