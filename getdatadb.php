@@ -21,7 +21,22 @@
       }
     }
 
-
+  } else if('participants' == $type) {
+  
+    // Get participants for a particular study
+    $studyId = $_GET['studyId'];
+    $query = "select * from Participant";
+    $con = new mysqli($hs, $un, $pw, $db);
+    if($con->connect_errno > 0) {
+      echo 'Cannot connect to database ['.$con->connect_error.']';
+    } else {
+      if(!$res = $con->query($query)) {
+        echo 'Error running query [' . $con->error . ']';
+      } else {
+        $row = $res->fetch_assoc();
+        echo $row['email'];
+      }
+    }
 
   } else if('studies' == $type) {
 
@@ -101,9 +116,9 @@
         $studies[$i]['researcherFirstName'] = $row['firstName'];
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
-        $studies[$i]['researcherPhone'] = $row['phone'];
-        $studies[$i]['privCal'] = $row['privCal'];
-        $studies[$i]['pubCal'] = $row['pubCal'];
+        $studies[$i]['researcherPhone'] = $row['phoneNumber'];
+        $studies[$i]['calPriv'] = $row['CalPriv'];
+        $studies[$i]['calPub'] = $row['calPub'];
         $i++;
       }
       $jsonRes = json_encode($studies);
