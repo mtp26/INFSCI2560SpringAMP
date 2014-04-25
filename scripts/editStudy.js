@@ -157,11 +157,11 @@ function displayStudy(jsonObj)
     $.each(val, function(v) {
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
     });
-    if(val.length>0) {
-      var name = key.split("_");
-      name = name[name.length-1].toLowerCase();
-      $("#" + name + "_count").html(val.length + " restrictions in " + name + " category");
-    }
+    //if(val.length>0) {
+    //  var n = key.split("_");
+     // n = n[n.length-1].toLowerCase();
+     // $("#" + n + "_count").html(val.length + " restrictions in " + n + " category");
+    //}
   });
 }
 
