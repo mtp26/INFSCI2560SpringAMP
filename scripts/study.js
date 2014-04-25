@@ -30,6 +30,14 @@ function displayStudy(jsonObj)
     $(".keywords").append(" ");
   });
 
+  // Contact the researcher link
+  $(".contact-link").click(function(event) {
+      event.preventDefault();
+      $(this).attr("href", "contact.html?studyId=" + study.studyId);
+      $(this).attr("target", "_blank");
+      window.open("contact.html?studyId=" + study.studyId, study.title, "width=800, height=600");
+  });
+
   // Eligibility parsing
   eligibility = jQuery.parseJSON(study.eligibility);
   $(".eligibility").html(eligibility.Elig_Other);
