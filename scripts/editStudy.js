@@ -158,7 +158,9 @@ function displayStudy(jsonObj)
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
     });
     if(val.length>0) {
-      $("#" + key.split("_")[0] + "_count").html(val.length + " restrictions in " + key.split("_")[0] + " category");
+      val name = key.split("_");
+      val name = name[name.length-1].toLowerCase();
+      $("#" + name + "_count").html(val.length + " restrictions in " + name + " category");
     }
   });
 }
