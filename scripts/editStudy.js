@@ -154,7 +154,7 @@ function displayStudy(jsonObj)
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {
     val = val.split(" ");
-    $.each(val, function(v) {
+    $.each(val, function(k, v) {
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
     });
     if(val[0] != "0") {
