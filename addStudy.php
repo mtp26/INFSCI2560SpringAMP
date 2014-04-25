@@ -28,7 +28,7 @@
     $id=$_POST['id'];
     $query = "update Study set title='$title', length='$length', compensationAmount='$comp', compensationType='$type', eligibility='$elig', description='$desc', startDate='$start', endDate='$end', ibr='$ibr', calPub='$pubCal', calPriv='$privCal' where studyId = $id";
   }
-  
+  print("Query $query<br/>\n");
   $con = new mysqli($hs, $un, $pw, $db);
   if($con->connect_errno > 0) {
     echo 'Cannot connect to database ['.$con->connect_error.']';
