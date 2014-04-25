@@ -75,7 +75,7 @@ $(document).ready(function() {
 
     var eligibility = "{" + age_elig + "," + gender_elig + "," + lang_elig + "," +
       vision_elig + "," + education_elig + "," + experience_elig + "," + cit_elig + "," + other_elig + "}";
-    alert(addStudy(title, length, payAmt, payType, eligibility, desc, startDate, endDate, 1,irb, pubCal, privCal, keywords, actiontype, studyId));
+   addStudy(title, length, payAmt, payType, eligibility, desc, startDate, endDate, 1,irb, pubCal, privCal, keywords, actiontype, studyId);
 //    window.close();
    // alert(id);
   });
