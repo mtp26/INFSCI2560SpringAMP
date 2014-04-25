@@ -148,6 +148,8 @@ function displayStudy(jsonObj)
     $("input#keywords_input").val(study.keywords);
     $("textarea#description_input").val(study.description);
     $("input#pi_name").val(study.researcherFirstName + " " + study.researcherLastName);
+    $("input#pi_phone").val(study.researcherPhone);
+    $("input#pi_email").val(study.email);
 
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {
