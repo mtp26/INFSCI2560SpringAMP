@@ -1,7 +1,10 @@
 University of Pittsburgh Experiment Exchange
 
-Help File
+-- Help File --
 
+
+For All Users:
+	To ensure the best user experience, please view Experiment Exchange using Google Chrome.
 
 For Participants:
 	
