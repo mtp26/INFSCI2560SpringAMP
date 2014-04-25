@@ -1,11 +1,13 @@
-var type = "add";
+/*jslint browser: true*/
+/*global $, jQuery, alert*/
+var actiontype = "add";
 var studyId = "";
 
 $(document).ready(function() {
   var id = getURLParam("id");
   if(id) {
     searchById(id, displayStudy);
-    type = "edit";
+    actiontype = "edit";
     studyId = id;
   }
   
@@ -23,25 +25,62 @@ $(document).ready(function() {
     var keywords = $("input#keywords_input").val();
 
     var desc = $("textarea#description_input").val();
-    var age_elig = "\"age_elig\":\"" + $("input[name=age_elig]:checked").map(
-      function() {return this.value;}).get().join("," ) + "\"";
-    var gender_elig = "\"gender_elig\":\"" + $("input[name=gender_elig]:checked").map(
-      function() {return this.value;}).get().join("," ) + "\"";
+
+    if($("#age_count").html().split(" ")[0] == "0") {
+      var age_elig = "\"age_elig\": \"0\"";
+    } else {
+      var age_elig = "\"age_elig\":\"" + $("input[name=age_elig]:checked").map(
+        function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#gender_count").html().split(" ")[0] == "0") {
+      var gender_elig = "\"gender_elig\": \"0\"";
+    } else {
+      var gender_elig = "\"gender_elig\":\"" + $("input[name=gender_elig]:checked").map(
+        function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#age_count").html().split(" ")[0] == "0") {
+      var age_elig = "\"age_elig\": \"0\"";
+    } else {      
     var lang_elig = "\"lang_elig\":\"" + $("input[name=lang_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#vision_count").html().split(" ")[0] == "0") {
+      var vision_elig = "\"vision_elig\": \"0\"";
+    } else {      
     var vision_elig = "\"vision_elig\":\"" + $("input[name=vision_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#edu_count").html().split(" ")[0] == "0") {
+      var education_elig = "\"education_elig\": \"0\"";
+    } else {      
     var education_elig = "\"education_elig\":\"" + $("input[name=education_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#exp_count").html().split(" ")[0] == "0") {
+      var exp_elig = "\"experience_elig\": \"0\"";
+    } else {      
     var experience_elig = "\"experience_elig\":\"" + $("input[name=experience_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
+    }
+
+    if($("#cit_count").html().split(" ")[0] == "0") {
+      var cit_elig = "\"cit_elig\": \"0\"";
+    } else {      
     var cit_elig = "\"cit_elig\":\"" + $("input[name=cit_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
-    var other_elig = "\"other_elig\":\"" + $("input[name=gender_elig]").val() + "\"";
+    }
+      
+    var other_elig = "\"other_elig\":\"" + $("input[name=other_elig]").val() + "\"";
+
 
     var eligibility = "{\"eligibility\":{" + age_elig + "," + gender_elig + "," + lang_elig + "," +
       vision_elig + "," + education_elig + "," + experience_elig + "," + cit_elig + "," + other_elig + "}}";
-    alert(addStudy(title, length, payAmt, payType, "", desc, startDate, endDate, 1,irb, pubCal, privCal, keywords, type, studyId));
+    alert(addStudy(title, length, payAmt, payType, eligibility, desc, startDate, endDate, 1,irb, pubCal, privCal, keywords, actiontype, studyId));
 //    window.close();
    // alert(id);
   });
