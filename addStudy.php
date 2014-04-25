@@ -1,5 +1,5 @@
 <?php
-  
+  session_start();
   $hs = "mysql.rosta-farzan.net";
   $un = "grp1";
   $pw = "d6q7pY";
@@ -13,14 +13,21 @@
   $desc = $_POST['desc'];
   $start = $_POST['startDate'];
   $end = $_POST['endDate'];
-  $owner = $_POST['ownerId'];
+  $owner = $_SESSION['rId'];
   $ibr = $_POST['ibr'];
   $pubCal = $_POST['pubCal'];
   $privCal = $_POST['privCal'];
   $keywords = $_POST['keywords'];
-  $query = "insert into Study";
-  $query .= " (title, length, compensationAmount, compensationType, eligibility, description, startDate, endDate, ownerId, ibr, calPub, calPriv)";
-  $query .= " values ('$title', '$length', '$comp', '$type','$eligibility', '$desc', date '$start', date '$end', '$owner', '$ibr', '$pubCal', '$privCal')";
+  $type = $_POST['type'];
+
+  if($type == "add") {
+    $query = "insert into Study";
+    $query .= " (title, length, compensationAmount, compensationType, eligibility, description, startDate, endDate, ownerId, ibr, calPub, calPriv)";
+    $query .= " values ('$title', '$length', '$comp', '$type','$elig', '$desc', date '$start', date '$end', '$owner', '$ibr', '$pubCal', '$privCal')";
+  } else {
+    $id=$_POST['id'];
+    $query = "update Study set title='$title', length='$length', compensationAmount='$comp', compensationType='$type', eligibility='$elig', description='$desc', startDate='$start', endDate='$end', ibr='$ibr', calPub='$pubCal', calPriv='$privCal' where studyId = $id";
+  }
   
   $con = new mysqli($hs, $un, $pw, $db);
   if($con->connect_errno > 0) {

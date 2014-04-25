@@ -1,5 +1,13 @@
+var type = "add";
+var studyId = "";
+
 $(document).ready(function() {
-  searchById(getURLParam("id"), displayStudy);
+  var id = getURLParam("id");
+  if(id) {
+    searchById(id, displayStudy);
+    type = "edit";
+    studyId = id;
+  }
   
   $("#studySubmit").click(function() {
    // var id = $("input#studyId").val();
@@ -33,7 +41,7 @@ $(document).ready(function() {
 
     var eligibility = "{\"eligibility\":{" + age_elig + "," + gender_elig + "," + lang_elig + "," +
       vision_elig + "," + education_elig + "," + experience_elig + "," + cit_elig + "," + other_elig + "}}";
-    addStudy(title, length, payAmt, payType, "", desc, startDate, endDate, 1,irb, pubCal, privCal, keywords);
+    alert(addStudy(title, length, payAmt, payType, "", desc, startDate, endDate, 1,irb, pubCal, privCal, keywords, type, studyId));
 //    window.close();
    // alert(id);
   });
@@ -69,9 +77,9 @@ function addStudyTest() {
     Output: None
     Performs call to post the study details
 */
-function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ownerId,ibr, pubCal, privCal, keywords) {
+function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ownerId,ibr, pubCal, privCal, keywords, type, id) {
   var url = "../addStudy.php";
-  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords;
+  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&eligibility="+eligibility+"&description="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+&"type="+type+"&id="+id;
   console.log(params);
   post(url, params, function(req) {
     var res = req.responseText.split(":");
