@@ -24,7 +24,7 @@ $(document).ready(function() {
       var tdTimeframe = document.createElement("td");
       tdTimeframe.innerHTML = data.startDate + "&mdash;" + data.endDate;
       var tdInterested = document.createElement("td");
-      tdInterested.innerHTML = "<a href=\"web/UserList.html?id=" + data.studyId + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+data.numParticipating+"</a>";     
+      tdInterested.innerHTML = "<a href=\"UserList.html?studyId=" + data.studyId + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+data.numParticipating+"</a>";     
 
       newRow.appendChild(tdStudy);
       newRow.appendChild(tdTimeframe);
