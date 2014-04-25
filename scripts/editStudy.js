@@ -70,7 +70,7 @@ $(document).ready(function() {
         function() {return this.value;}).get().join("," ) + "\"";
     }
       
-    var other_elig = "\"other_elig\":\"" + $("textarea#Elig_Other]").val() + "\"";
+    var other_elig = "\"other_elig\":\"" + $("textarea#Elig_Other").val() + "\"";
 
 
     var eligibility = "{" + age_elig + "," + gender_elig + "," + lang_elig + "," +
