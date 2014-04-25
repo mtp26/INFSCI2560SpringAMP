@@ -137,19 +137,19 @@ function displayStudy(jsonObj)
 
   var study = jsonObj.studies[0];
   $("input#title_input").val(study.title);
-    $("input#start_date_input").val(study.startDate);
-    $("input#end_date_input").val(study.endDate);
-    $("input#session_length_input").val(study.length);
-    $("input#public_cal").val(study.calPub);
-    $("input#private_cal").val(study.calPriv);
-    $("input#irb_input").val(study.IBR);
-    $("input#pay_type").val(study.compensationType);
-    $("input#pay_value_input").val(study.compensationAmount);
-    $("input#keywords_input").val(study.keywords);
-    $("textarea#description_input").val(study.description);
-    $("input#pi_name").val(study.researcherFirstName + " " + study.researcherLastName);
-    $("input#pi_phone").val(study.researcherPhone);
-    $("input#pi_email").val(study.researcherEmail);
+  $("input#start_date_input").val(study.startDate);
+  $("input#end_date_input").val(study.endDate);
+  $("input#session_length_input").val(study.length);
+  $("input#public_cal").val(study.calPub);
+  $("input#private_cal").val(study.calPriv);
+  $("input#irb_input").val(study.IBR);
+  $("input#pay_type").val(study.compensationType);
+  $("input#pay_value_input").val(study.compensationAmount);
+  $("input#keywords_input").val(study.keywords);
+  $("textarea#description_input").val(study.description);
+  $("input#pi_name").val(study.researcherFirstName + " " + study.researcherLastName);
+  $("input#pi_phone").val(study.researcherPhone);
+  $("input#pi_email").val(study.researcherEmail);
 
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {
@@ -157,6 +157,9 @@ function displayStudy(jsonObj)
     $.each(val, function(v) {
       $("input[name="+key+"][value="+v+"]").attr("checked",true);
     });
+    if(val.length>0) {
+      $("#" + key.split("_")[0] + "_count").html(val.length + " restrictions in " + key.split("_")[0] + " category");
+    }
   });
 }
 
