@@ -24,8 +24,9 @@
   } else if('participants' == $type) {
   
     // Get participants for a particular study
-    $studyId = $_GET['studyId'];
-    $query = "select * from Participant";
+    $studyId = $_GET['id'];
+    $query = "select * from Participant p, Participating pg where pg.studyId='$studyId' and p.participantId = pg.participantId";
+    //$query = "select k.keyword from Keywords k, KeywordMatch km where km.studyId='$id' and km.keywordId = k.keywordId";
     $con = new mysqli($hs, $un, $pw, $db);
     if($con->connect_errno > 0) {
       echo 'Cannot connect to database ['.$con->connect_error.']';
@@ -33,8 +34,16 @@
       if(!$res = $con->query($query)) {
         echo 'Error running query [' . $con->error . ']';
       } else {
-        $row = $res->fetch_assoc();
-        echo $row['email'];
+        $i = 0;
+        $participants = array();
+        while($row = $res->fetch_assoc()) {
+          $participants[$i]['firstName'] = $row['firstName'];
+          $participants[$i]['lastName'] = $row['lastName'];
+          $participants[$i]['email'] = $row['email'];
+          $i++;
+        }
+        $jsonRes = json_encode($participants);
+        print "{\"participants\":$jsonRes}";
       }
     }
 
