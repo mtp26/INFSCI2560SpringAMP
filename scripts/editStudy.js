@@ -14,7 +14,7 @@ $(document).ready(function() {
     var payAmt = $("input#pay_value_input").val();
     var keywords = $("input#keywords_input").val();
 
-    var desc = $("input#description_input").val();
+    var desc = $("textarea#description_input").val();
     var age_elig = "\"age_elig\":\"" + $("input[name=age_elig]:checked").map(
       function() {return this.value;}).get().join("," ) + "\"";
     var gender_elig = "\"gender_elig\":\"" + $("input[name=gender_elig]:checked").map(
@@ -146,7 +146,8 @@ function displayStudy(jsonObj)
     $("input#pay_type").val(study.compensationType);
     $("input#pay_value_input").val(study.compensationAmount);
     $("input#keywords_input").val(study.keywords);
-    $("input#description").val(study.description);
+    $("textarea#description_input").val(study.description);
+    $("input#pi_name").val(study.researcherFirstName + " " + study.researcherLastName);
 
   var elig = JSON.parse(study.eligibility);
   $.each(elig, function(key, val) {

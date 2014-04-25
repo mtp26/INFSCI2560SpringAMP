@@ -119,14 +119,14 @@
         $studies[$i]['description'] = $row['description'];
         $studies[$i]['startDate'] = $row['startDate'];
         $studies[$i]['endDate'] = $row['endDate'];
-        $studies[$i]['IBR'] = $row['ibr'];
+        $studies[$i]['IBR'] = $row['IBR'];
         $studies[$i]['keywords'] = getKeywords($con, $row['studyId']);
         $studies[$i]['researcherId'] = $row['researcherId'];
         $studies[$i]['researcherFirstName'] = $row['firstName'];
         $studies[$i]['researcherLastName'] = $row['lastName'];
         $studies[$i]['researcherEmail'] = $row['email'];
         $studies[$i]['researcherPhone'] = $row['phoneNumber'];
-        $studies[$i]['calPriv'] = $row['CalPriv'];
+        $studies[$i]['calPriv'] = $row['calPriv'];
         $studies[$i]['calPub'] = $row['calPub'];
         $i++;
       }
