@@ -80,8 +80,6 @@ function addSearchResult(study)
   $(".endDate", resultDetailed).html(study.startDate);
   $(".description", resultDetailed).html(study.description);
 
-  $(".pubCal", resultDetailed).attr("href", study.calPub);
-
   $(".researcherFirstName", resultDetailed).html(study.researcherFirstName);
   $(".researcherLastName", resultDetailed).html(study.researcherLastName);
 
@@ -106,6 +104,14 @@ function addSearchResult(study)
 
   // Subscription link
   $(".subscribe", resultDetailed).attr("href", "rss.php?studyId=" + study.studyId);
+
+  // View schedule
+  $(".pubCal", resultDetailed).click(function(event) {
+      event.preventDefault();
+      $(this).attr("href", study.calPub);
+      $(this).attr("target", "_blank");
+      window.open(study.calPub, "Study Calendar", "width=800, height=600");
+  });
 
   // Detailed view (expanded) link
   $(".detailedview", resultDetailed).click(function(event) {
