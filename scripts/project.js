@@ -108,12 +108,13 @@ function addSearchResult(study)
   $(".subscribe", resultDetailed).attr("href", "rss.php?studyId=" + study.studyId);
 
   // Detailed view (expanded) link
-  $(".detailedview", resultDetailed).click(function() {
+  $(".detailedview", resultDetailed).click(function(event) {
       event.preventDefault();
       $(this).attr("href", "study.html?studyId=" + study.studyId);
       $(this).attr("target", "_blank");
       window.open("study.html?studyId=" + study.studyId, study.title, "width=800, height=600");
   });
+
   // Contact the researcher link
   $(".contact-link", resultDetailed).click(function(event) {
       event.preventDefault();
