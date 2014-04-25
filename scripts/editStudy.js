@@ -140,11 +140,11 @@ function displayStudy(jsonObj)
     $("input#start_date_input").val(study.startDate);
     $("input#end_date_input").val(study.endDate);
     $("input#session_length_input").val(study.length);
-    $("input#public_cal").val(study.pubCal);
-    $("input#private_cal").val(study.privCal);
+    $("input#public_cal").val(study.calPub);
+    $("input#private_cal").val(study.calPriv);
     $("input#irb_input").val(study.IBR);
     $("input#pay_type").val(study.compensationType);
-    $("input#pay_value_input").val(study.compensationAmt);
+    $("input#pay_value_input").val(study.compensationAmount);
     $("input#keywords_input").val(study.keywords);
     $("input#description").val(study.description);
 
