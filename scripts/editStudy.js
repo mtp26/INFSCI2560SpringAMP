@@ -116,22 +116,9 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
   var params = "title="+title+"&length="+length+"&compAmount="+compAmt+"&compType="+compType+"&elig="+eligibility+"&desc="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+"&qtype="+type+"&id="+id;
   console.log(params);
   post(url, params, function(req) {
-   // alert(req.responseText);
     var res = req.responseText.split(":");
     if("Success" == res[0]) {
       alert("Successfully added study, have a nice day");
-      var newRow = document.createElement("tr");
-      var tdStudy = document.createElement("td");
-      tdStudy.innerHTML = "<a href='web/EditStudy.html?id=" + res[1] + "' onclick=\"return !window.open(this.href, 'Add/Edit Study', 'width=800,height=700')\" target='_blank'>" +title +"</a>";
-      var tdTimeframe = document.createElement("td");
-      tdTimeframe.innerHTML = startDate + "&mdash;" + endDate;
-      var tdInterested = document.createElement("td");
-      tdInterested.innerHTML = "<a href=\"UserList.html?studyId=" + res[1] + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+0+"</a>";     
-
-      newRow.appendChild(tdStudy);
-      newRow.appendChild(tdTimeframe);
-      newRow.appendChild(tdInterested);
-      //$(".main-researcher>table")[0].appendChild(newRow);  //This won't work, cross-window
       // Clear boxes and alert success
       window.close();
     }
