@@ -117,7 +117,6 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
   console.log(params);
   post(url, params, function(req) {
     var res = req.responseText.split(":");
-    alert(res);
     if("Success" == res[0]) {
       alert("Successfully added study, have a nice day");
       // Clear boxes and alert success
