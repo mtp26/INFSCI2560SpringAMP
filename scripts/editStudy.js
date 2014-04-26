@@ -35,42 +35,42 @@ $(document).ready(function() {
     var cit_elig = "\"cit_elig\": \"0\"";
 
 
-    if($("#age_count").html().split(" ")[0] != "0") {
-      age_elig = "\"age_elig\":\"" + $("input[name=age_elig]:checked").map(
+    if($("input[name=Elig_Age]:checked").size() > 0) {
+      age_elig = "\"Elig_Age\":\"" + $("input[name=Elig_Age]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#gender_count").html().split(" ")[0] != "0") {
-      gender_elig = "\"gender_elig\":\"" + $("input[name=gender_elig]:checked").map(
+    if($("input[name=Elig_Gender]:checked").size() > 0) {
+      gender_elig = "\"Elig_Gender\":\"" + $("input[name=Elig_Gender]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#lang_count").html().split(" ")[0] != "0") {
-      lang_elig = "\"lang_elig\":\"" + $("input[name=lang_elig]:checked").map(
+    if($("input[name=Elig_Lang]:checked").size() > 0) {
+      lang_elig = "\"Elig_Lang\":\"" + $("input[name=Elig_Lang]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#vision_count").html().split(" ")[0] != "0") {
-      vision_elig = "\"vision_elig\":\"" + $("input[name=vision_elig]:checked").map(
+    if($("input[name=Elig_Vision]:checked").size() > 0) {
+      vision_elig = "\"Elig_Vision\":\"" + $("input[name=Elig_Vision]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#edu_count").html().split(" ")[0] != "0") {
-      education_elig = "\"education_elig\":\"" + $("input[name=education_elig]:checked").map(
+    if($("input[name=Elig_Edu]:checked").size() > 0) {
+      education_elig = "\"Elig_EGU\":\"" + $("input[name=Elig_Edu]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#exp_count").html().split(" ")[0] != "0") {
-      experience_elig = "\"experience_elig\":\"" + $("input[name=experience_elig]:checked").map(
+    if($("input[name=Elig_Exp]:checked").size() > 0) {
+      experience_elig = "\"Elig_Exp\":\"" + $("input[name=Elig_Exp]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
-    if($("#cit_count").html().split(" ")[0] != "0") {
-      cit_elig = "\"cit_elig\":\"" + $("input[name=cit_elig]:checked").map(
+    if($("input[name=Elig_Cit]:checked").size() > 0) {
+      cit_elig = "\"Elig_Cit\":\"" + $("input[name=Elig_Cit]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
       
-    var other_elig = "\"other_elig\":\"" + $("textarea#Elig_Other").val() + "\"";
+    var other_elig = "\"Elig_Other\":\"" + $("textarea#Elig_Other").val() + "\"";
 
 
     var eligibility = "{" + age_elig + "," + gender_elig + "," + lang_elig + "," +
