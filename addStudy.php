@@ -37,6 +37,9 @@
     } else {
       insertKeywords($con->insert_id, $keywords, $con);
       echo Success;
+      if($qtype == "add") {
+        print(":"+$con->insert_id);
+      }
     }
   }
 
