@@ -116,7 +116,7 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
   var params = "title="+title+"&length="+length+"&compAmount="+compAmt+"&compType="+compType+"&elig="+eligibility+"&desc="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+"&qtype="+type+"&id="+id;
   console.log(params);
   post(url, params, function(req) {
-    alert(req.responseText);
+   // alert(req.responseText);
     var res = req.responseText.split(":");
     if("Success" == res[0]) {
       alert("Successfully added study, have a nice day");
@@ -131,7 +131,7 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
       newRow.appendChild(tdStudy);
       newRow.appendChild(tdTimeframe);
       newRow.appendChild(tdInterested);
-      $(".main-researcher>table")[0].appendChild(newRow);
+      //$(".main-researcher>table")[0].appendChild(newRow);  //This won't work, cross-window
       // Clear boxes and alert success
       window.close();
     }
