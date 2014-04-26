@@ -36,10 +36,7 @@
       echo 'Error running query [' . $con->error . ']';
     } else {
       insertKeywords($con->insert_id, $keywords, $con);
-      echo Success;
-      if($qtype == "add") {
-        print(":"+$con->insert_id);
-      }
+      print("Success:"+$con->insert_id);
     }
   }
 
