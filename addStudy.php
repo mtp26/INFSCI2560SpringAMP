@@ -35,8 +35,9 @@
     if(!$res = $con->query($query)) {
       echo 'Error running query [' . $con->error . ']';
     } else {
+      $sId = $con->insert_id;
       insertKeywords($con->insert_id, $keywords, $con);
-      print("Success:".$con->insert_id);
+      print("Success:".$sId);
     }
   }
 

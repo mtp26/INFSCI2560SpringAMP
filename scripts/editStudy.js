@@ -124,7 +124,7 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
       var tdStudy = document.createElement("td");
       tdStudy.innerHTML = "<a href='web/EditStudy.html?id=" + res[1] + "' onclick=\"return !window.open(this.href, 'Add/Edit Study', 'width=800,height=700')\" target='_blank'>" +title +"</a>";
       var tdTimeframe = document.createElement("td");
-      tdTimeframe.innerHTML = data.startDate + "&mdash;" + endDate;
+      tdTimeframe.innerHTML = startDate + "&mdash;" + endDate;
       var tdInterested = document.createElement("td");
       tdInterested.innerHTML = "<a href=\"UserList.html?studyId=" + res[1] + "\" onclick=\"return !window.open(this.href, 'User List', 'width=200,height=300')\" target=\"_blank\">"+0+"</a>";     
 
