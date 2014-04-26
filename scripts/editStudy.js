@@ -37,37 +37,37 @@ $(document).ready(function() {
 
     if($("input[name=Elig_Age]:checked").size() > 0) {
       age_elig = "\"Elig_Age\":\"" + $("input[name=Elig_Age]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Gender]:checked").size() > 0) {
       gender_elig = "\"Elig_Gender\":\"" + $("input[name=Elig_Gender]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Lang]:checked").size() > 0) {
       lang_elig = "\"Elig_Lang\":\"" + $("input[name=Elig_Lang]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Vision]:checked").size() > 0) {
       vision_elig = "\"Elig_Vision\":\"" + $("input[name=Elig_Vision]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Edu]:checked").size() > 0) {
       education_elig = "\"Elig_Edu\":\"" + $("input[name=Elig_Edu]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Exp]:checked").size() > 0) {
       experience_elig = "\"Elig_Exp\":\"" + $("input[name=Elig_Exp]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
 
     if($("input[name=Elig_Cit]:checked").size() > 0) {
       cit_elig = "\"Elig_Cit\":\"" + $("input[name=Elig_Cit]:checked").map(
-        function() {return this.value;}).get().join("," ) + "\"";
+        function() {return this.value;}).get().join(" " ) + "\"";
     }
       
     var other_elig = "\"Elig_Other\":\"" + $("textarea#Elig_Other").val() + "\"";
