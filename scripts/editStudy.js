@@ -26,13 +26,13 @@ $(document).ready(function() {
 
     var desc = $("textarea#description_input").val();
 
-    var age_elig = "\"age_elig\": \"0\"";
-    var gender_elig = "\"gender_elig\": \"0\"";
-    var lang_elig = "\"lang_elig\": \"0\"";
-    var vision_elig = "\"vision_elig\": \"0\"";
-    var education_elig = "\"education_elig\": \"0\"";
-    var exp_elig = "\"experience_elig\": \"0\"";
-    var cit_elig = "\"cit_elig\": \"0\"";
+    var age_elig = "\"Elig_Age\": \"0\"";
+    var gender_elig = "\"Elig_Gen\": \"0\"";
+    var lang_elig = "\"Elig_Lang\": \"0\"";
+    var vision_elig = "\"Elig_Vision\": \"0\"";
+    var education_elig = "\"Elig_Edu\": \"0\"";
+    var exp_elig = "\"Elig_Exp\": \"0\"";
+    var cit_elig = "\"Elig_Cit\": \"0\"";
 
 
     if($("input[name=Elig_Age]:checked").size() > 0) {
@@ -40,8 +40,8 @@ $(document).ready(function() {
         function() {return this.value;}).get().join(" " ) + "\"";
     }
 
-    if($("input[name=Elig_Gender]:checked").size() > 0) {
-      gender_elig = "\"Elig_Gender\":\"" + $("input[name=Elig_Gender]:checked").map(
+    if($("input[name=Elig_Gen]:checked").size() > 0) {
+      gender_elig = "\"Elig_Gen\":\"" + $("input[name=Elig_Gen]:checked").map(
         function() {return this.value;}).get().join(" " ) + "\"";
     }
 
