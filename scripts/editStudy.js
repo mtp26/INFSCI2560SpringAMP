@@ -113,7 +113,7 @@ function addStudyTest() {
 */
 function addStudy(title, length, compAmt, compType, eligibility, description, startDate, endDate, ownerId,ibr, pubCal, privCal, keywords, type, id) {
   var url = "../addStudy.php";
-  var params = "title="+title+"&length="+length+"&compensationAmount="+compAmt+"&compensationType="+compType+"&elig="+eligibility+"&desc="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+"&type="+type+"&id="+id;
+  var params = "title="+title+"&length="+length+"&compAmount="+compAmt+"&compType="+compType+"&elig="+eligibility+"&desc="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+"&type="+type+"&id="+id;
   console.log(params);
   post(url, params, function(req) {
     var res = req.responseText.split(":");
@@ -121,6 +121,7 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
     if("Success" == res[0]) {
       alert("Successfully added study, have a nice day");
       // Clear boxes and alert success
+      window.close();
     }
     else if("Error" == res[0]) {
       alert("Error, unable to add study " + res[1]);
