@@ -18,9 +18,9 @@
   $pubCal = $_POST['pubCal'];
   $privCal = $_POST['privCal'];
   $keywords = $_POST['keywords'];
-  $type = $_POST['type'];
+  $qtype = $_POST['qtype'];
 
-  if($type == "add") {
+  if($qtype == "add") {
     $query = "insert into Study";
     $query .= " (title, length, compensationAmount, compensationType, eligibility, description, startDate, endDate, ownerId, ibr, calPub, calPriv)";
     $query .= " values ('$title', '$length', '$comp', '$type','$elig', '$desc', date '$start', date '$end', '$owner', '$ibr', '$pubCal', '$privCal')";
