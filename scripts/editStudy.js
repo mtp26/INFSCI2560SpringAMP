@@ -116,6 +116,7 @@ function addStudy(title, length, compAmt, compType, eligibility, description, st
   var params = "title="+title+"&length="+length+"&compAmount="+compAmt+"&compType="+compType+"&elig="+eligibility+"&desc="+description+"&startDate="+startDate+"&endDate="+endDate+"&ownerId="+ownerId+"&ibr="+ibr+"&pubCal="+pubCal+"&privCal="+privCal+"&keywords="+keywords+"&qtype="+type+"&id="+id;
   console.log(params);
   post(url, params, function(req) {
+    alert(req.responseText);
     var res = req.responseText.split(":");
     if("Success" == res[0]) {
       alert("Successfully added study, have a nice day");
