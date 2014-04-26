@@ -56,7 +56,7 @@ $(document).ready(function() {
     }
 
     if($("input[name=Elig_Edu]:checked").size() > 0) {
-      education_elig = "\"Elig_EGU\":\"" + $("input[name=Elig_Edu]:checked").map(
+      education_elig = "\"Elig_Edu\":\"" + $("input[name=Elig_Edu]:checked").map(
         function() {return this.value;}).get().join("," ) + "\"";
     }
 
