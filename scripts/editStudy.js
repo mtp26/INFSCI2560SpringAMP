@@ -61,7 +61,7 @@ $(document).ready(function() {
     }
 
     if($("input[name=Elig_Exp]:checked").size() > 0) {
-      experience_elig = "\"Elig_Exp\":\"" + $("input[name=Elig_Exp]:checked").map(
+      exp_elig = "\"Elig_Exp\":\"" + $("input[name=Elig_Exp]:checked").map(
         function() {return this.value;}).get().join(" " ) + "\"";
     }
 
